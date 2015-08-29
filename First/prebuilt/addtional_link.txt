@@ -1,0 +1,2 @@
+$(ProjectDir)prebuilt\libEGL.lib
+$(ProjectDir)prebuilt\libGLESv2.lib

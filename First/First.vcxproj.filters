@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ELWindowApp.cpp" />
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>glutil</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ELWindowApp.h" />
+    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\macro_define.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="gltest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{d7d7bc57-e66b-4511-88f3-07973997aced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glutil">
+      <UniqueIdentifier>{a1e75dfd-921f-4ad1-b2e5-2ee15376d438}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
