@@ -45,5 +45,16 @@
     <Filter Include="glutil">
       <UniqueIdentifier>{a1e75dfd-921f-4ad1-b2e5-2ee15376d438}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{75ef41fa-eca0-486d-8880-0119bb8544d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\p2c4_fragment_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\p2c4_vertex_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

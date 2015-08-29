@@ -19,8 +19,8 @@ void ShaderProgram_p2c4::end() {
 /* implementation of       ShaderProgram_p2c4                                                               */
 /************************************************************************/
 
-const std::string ShaderProgram_p2c4::sc_VertexShaderName = "p2c4_vertex_shader.glsl";
-const std::string ShaderProgram_p2c4::sc_FragmentShaderName = "p2c4_vertex_shader.glsl";
+const std::string ShaderProgram_p2c4::sc_VertexShaderName = "shaders/p2c4_vertex_shader.glsl";
+const std::string ShaderProgram_p2c4::sc_FragmentShaderName = "shaders/p2c4_fragment_shader.glsl";
 
 void ShaderProgram_p2c4::initialize() {
     using elloop::TextReader;

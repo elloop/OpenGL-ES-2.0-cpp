@@ -10,3 +10,4 @@
 typedef GLuint ShaderId;
 typedef GLuint ProgramId;
 extern bool LOG_OPEN;
+

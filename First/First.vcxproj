@@ -64,8 +64,17 @@
       <AdditionalDependencies>$(ProjectDir)prebuilt\libEGL.lib;$(ProjectDir)prebuilt\libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "$(ProjectDir)\prebuilt\*.dll" "$(OutDir)" /D /E /I /F /Y</Command>
+      <Command>rd /s /q "$(OutDir)\shaders"
+del /s /q /f "$(OutDir)\d3dcompiler_47.dll"
+del /s /q /f "$(OutDir)\libEGL.dll"
+del /s /q /f "$(OutDir)\libGLESv2.dll"
+</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)prebuilt\*.dll" "$(OutDir)" /D /E /I /F /Y
+xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -103,6 +112,10 @@
     <ClInclude Include="ShaderHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="TextReader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\p2c4_fragment_shader.glsl" />
+    <None Include="shaders\p2c4_vertex_shader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
