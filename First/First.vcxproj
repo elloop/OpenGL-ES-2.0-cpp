@@ -86,17 +86,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ELWindowApp.cpp" />
+    <ClCompile Include="gltest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShaderHelper.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="TextReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\macro_define.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="ELWindowApp.h" />
     <ClInclude Include="gltest.h" />
+    <ClInclude Include="ShaderHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="TextReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

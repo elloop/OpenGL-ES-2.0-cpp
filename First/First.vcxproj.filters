@@ -6,6 +6,11 @@
     <ClCompile Include="ShaderProgram.cpp">
       <Filter>glutil</Filter>
     </ClCompile>
+    <ClCompile Include="TextReader.cpp">
+      <Filter>glutil</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderHelper.cpp" />
+    <ClCompile Include="gltest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ELWindowApp.h" />
@@ -25,6 +30,13 @@
       <Filter>glutil</Filter>
     </ClInclude>
     <ClInclude Include="gltest.h" />
+    <ClInclude Include="TextReader.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderHelper.h" />
+    <ClInclude Include="Config.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

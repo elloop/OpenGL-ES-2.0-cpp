@@ -34,5 +34,5 @@ private:
     EGLContext  _context;
     EGLDisplay  _display;
 
-    elloop::ShaderProgram _shader;
+    elloop::ShaderProgram* _shader;
 };

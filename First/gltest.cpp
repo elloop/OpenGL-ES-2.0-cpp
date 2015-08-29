@@ -1,0 +1,1 @@
+bool LOG_OPEN = true;

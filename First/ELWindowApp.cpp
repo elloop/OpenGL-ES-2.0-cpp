@@ -70,7 +70,8 @@ LRESULT CALLBACK ELWindowApp::onEvent(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
 ELWindowApp::ELWindowApp(HINSTANCE instance):
         _hInstance(instance),
         _width(400),
-        _height(600) 
+        _height(600),
+        _shader(nullptr)
 {
     // 1. register a window class.
     WNDCLASSEX wndClass;
@@ -88,6 +89,11 @@ ELWindowApp::ELWindowApp(HINSTANCE instance):
 
 ELWindowApp::~ELWindowApp() {
     UnregisterClass(_T("ELWindow"), _hInstance);
+    if (_shader)
+    {
+        delete _shader;
+        _shader = nullptr;
+    }
 }
 
 bool ELWindowApp::initOpenGLES() {
@@ -149,11 +155,18 @@ void ELWindowApp::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, _width, _height);
 
-    _shader.initialize();
+    if (!_shader)
+    {
+        _shader = new elloop::ShaderProgram_p2c4();
+    }
+    _shader->initialize();
 
-    _shader.begin();
+    _shader->begin();
 
-    _shader.end();
+    _shader->end();
+
+    //elloop::ShaderProgram_p2c4 s2;
+    //s2.begin();
 }
 
 
