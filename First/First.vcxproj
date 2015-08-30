@@ -56,7 +56,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)elframe;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -94,6 +94,7 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="elframe\AutoReleasePool.cpp" />
     <ClCompile Include="ELWindowApp.cpp" />
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="main.cpp" />
@@ -107,8 +108,12 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="elframe\AutoReleasePool.h" />
+    <ClInclude Include="elframe\Ref.h" />
     <ClInclude Include="ELWindowApp.h" />
     <ClInclude Include="gltest.h" />
+    <ClInclude Include="include\cell\CELLMath.hpp" />
+    <ClInclude Include="macros.h" />
     <ClInclude Include="ShaderHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="TextReader.h" />

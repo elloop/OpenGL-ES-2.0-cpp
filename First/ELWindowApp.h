@@ -2,6 +2,7 @@
 #include <tchar.h>
 #include "EGL/egl.h"
 #include "gltest.h"
+#include <ctime>
 
 class ELWindowApp
 {
@@ -34,5 +35,6 @@ private:
     EGLContext  _context;
     EGLDisplay  _display;
 
-    elloop::ShaderProgram* _shader;
+    elloop::ShaderProgram_p2c4* _shader;
+    clock_t                     _lastRender;
 };

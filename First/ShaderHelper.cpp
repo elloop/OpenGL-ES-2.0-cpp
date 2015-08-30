@@ -37,6 +37,10 @@ const ShaderId ShaderHelper::compileShader(const GLchar* shaderSrc, GLenum shade
     // check the compile result.
     GLint compileStatus(0);
     glGetShaderiv(shaderId, GL_COMPILE_STATUS, &compileStatus);
+    if (GL_FALSE == compileStatus) {
+        glDeleteShader(shaderId);
+        shaderId = 0;
+    }
     assert(compileStatus == GL_TRUE);
 
     return shaderId;
@@ -58,11 +62,11 @@ ProgramId ShaderHelper::linkProgram(ShaderId vertexShaderId, ShaderId fragShader
     glLinkProgram(programId);
     GLint linkStatus(0);
     glGetProgramiv(programId, GL_LINK_STATUS, &linkStatus);
-    assert(linkStatus == GL_TRUE);
     if (GL_FALSE == linkStatus) {
         glDeleteProgram(programId);
-        return 0;
+        programId = 0;
     }
+    assert(linkStatus == GL_TRUE);
     return programId;
 }
 

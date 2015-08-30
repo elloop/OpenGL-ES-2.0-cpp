@@ -9,8 +9,13 @@
     <ClCompile Include="TextReader.cpp">
       <Filter>glutil</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderHelper.cpp" />
     <ClCompile Include="gltest.cpp" />
+    <ClCompile Include="ShaderHelper.cpp">
+      <Filter>glutil</Filter>
+    </ClCompile>
+    <ClCompile Include="elframe\AutoReleasePool.cpp">
+      <Filter>elframe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ELWindowApp.h" />
@@ -33,9 +38,23 @@
     <ClInclude Include="TextReader.h">
       <Filter>glutil</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderHelper.h" />
     <ClInclude Include="Config.h">
       <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderHelper.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="macros.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="elframe\Ref.h">
+      <Filter>elframe</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cell\CELLMath.hpp">
+      <Filter>include\cell</Filter>
+    </ClInclude>
+    <ClInclude Include="elframe\AutoReleasePool.h">
+      <Filter>elframe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +66,15 @@
     </Filter>
     <Filter Include="shaders">
       <UniqueIdentifier>{75ef41fa-eca0-486d-8880-0119bb8544d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{36c23462-6056-4d86-9664-3a5cc95871dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elframe">
+      <UniqueIdentifier>{62294279-455b-4ce2-a072-4882864979a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\cell">
+      <UniqueIdentifier>{5d324d8c-c699-4d32-af15-239b4aec7447}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

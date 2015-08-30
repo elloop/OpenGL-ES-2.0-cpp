@@ -6,6 +6,7 @@
 #include "ShaderHelper.h"
 #include "TextReader.h"
 #include "Config.h"
+#include "cell/CELLMath.hpp"
 
 typedef GLuint ShaderId;
 typedef GLuint ProgramId;

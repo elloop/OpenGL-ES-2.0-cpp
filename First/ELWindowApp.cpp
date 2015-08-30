@@ -1,6 +1,7 @@
 #include "ELWindowApp.h"
 #include "GLES2/gl2.h"
 #include <stdexcept>
+USING_NS_ELLOOP;
 
 int ELWindowApp::run() {
     _hwnd = CreateWindow(_T("ELWindow"), _T("ELWindow"), 
@@ -18,6 +19,11 @@ int ELWindowApp::run() {
         return false;
     }
 
+    _shader = ShaderProgram_p2c4::create();
+    if (_shader) {
+        _shader->retain();
+    }
+
     MSG msg = {0};
 
     while (msg.message != WM_QUIT) {
@@ -29,12 +35,27 @@ int ELWindowApp::run() {
             DispatchMessage(&msg);
         }
         else {
+
+            // clean autorelease objects.
+            PoolManager::getInstance()->recycle();
+
+
+            clock_t before = clock();
+            double renderInterval = (before - _lastRender) / CLOCKS_PER_SEC;
+
             render();
+            clock_t end = clock();
+            double renderSeconds = (end - before) / CLOCKS_PER_SEC;
+
+            _lastRender = before;
+
             eglSwapBuffers(_display, _surface);
         }
     }
 
     destroyOpenGLES();
+
+    PoolManager::getInstance()->purge();
 
     return 0;
 }
@@ -89,11 +110,7 @@ ELWindowApp::ELWindowApp(HINSTANCE instance):
 
 ELWindowApp::~ELWindowApp() {
     UnregisterClass(_T("ELWindow"), _hInstance);
-    if (_shader)
-    {
-        delete _shader;
-        _shader = nullptr;
-    }
+    _shader->release();
 }
 
 bool ELWindowApp::initOpenGLES() {
@@ -155,18 +172,28 @@ void ELWindowApp::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, _width, _height);
 
-    if (!_shader)
-    {
-        _shader = new elloop::ShaderProgram_p2c4();
+    if (_shader) {
+        _shader->begin();
+        CELL::matrix4 screenProj = CELL::ortho<float>(0, float(_width), float(_height), 0, -100.0f, 100);
+        GLfloat x = 100;
+        GLfloat y = 100;
+        GLfloat w = 100;
+        GLfloat h = 100;
+        GLfloat ary [] = {
+            x, y, 
+            x+w, y,
+            x, y + h,
+            x+w, y+h,
+            //x + 3.0 * w/2, y + 1.0/2*h,
+        };
+        size_t  len = sizeof ary / sizeof ary[0];
+        glUniformMatrix4fv(_shader->_mvp, 1, false, screenProj.data());
+        glUniform4f(_shader->_color, 1, 0, 0, 1);
+        glVertexAttribPointer(_shader->_position, 2, GL_FLOAT, false, 2*sizeof(GLfloat), ary);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        _shader->end();
     }
-    _shader->initialize();
 
-    _shader->begin();
-
-    _shader->end();
-
-    //elloop::ShaderProgram_p2c4 s2;
-    //s2.begin();
 }
 
 
