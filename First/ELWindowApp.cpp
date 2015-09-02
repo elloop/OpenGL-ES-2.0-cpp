@@ -188,7 +188,7 @@ void ELWindowApp::render() {
         };
         size_t  len = sizeof ary / sizeof ary[0];
         glUniformMatrix4fv(_shader->_mvp, 1, false, screenProj.data());
-        glUniform4f(_shader->_color, 1, 0, 0, 1);
+        glUniform4f(_shader->_color, 1, 0, 0, 0.5);
         glVertexAttribPointer(_shader->_position, 2, GL_FLOAT, false, 2*sizeof(GLfloat), ary);
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         _shader->end();
