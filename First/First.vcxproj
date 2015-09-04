@@ -95,10 +95,13 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Director.cpp" />
     <ClCompile Include="elframe\AutoReleasePool.cpp" />
     <ClCompile Include="ELWindowApp.cpp" />
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OpenGLView.cpp" />
     <ClCompile Include="ShaderHelper.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="TextReader.cpp" />
@@ -108,13 +111,17 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\macro_define.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h" />
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Director.h" />
     <ClInclude Include="elframe\AutoReleasePool.h" />
     <ClInclude Include="elframe\Ref.h" />
     <ClInclude Include="ELWindowApp.h" />
     <ClInclude Include="gltest.h" />
     <ClInclude Include="include\cell\CELLMath.hpp" />
+    <ClInclude Include="include\elloop\Singleton.h" />
     <ClInclude Include="macros.h" />
+    <ClInclude Include="OpenGLView.h" />
     <ClInclude Include="ShaderHelper.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="TextReader.h" />

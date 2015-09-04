@@ -16,6 +16,9 @@
     <ClCompile Include="elframe\AutoReleasePool.cpp">
       <Filter>elframe</Filter>
     </ClCompile>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Director.cpp" />
+    <ClCompile Include="OpenGLView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ELWindowApp.h" />
@@ -56,6 +59,12 @@
     <ClInclude Include="elframe\AutoReleasePool.h">
       <Filter>elframe</Filter>
     </ClInclude>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Director.h" />
+    <ClInclude Include="include\elloop\Singleton.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLView.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
