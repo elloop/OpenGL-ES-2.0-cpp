@@ -1,6 +1,6 @@
 #pragma once
 #include "elloop/inc.h"
-#include "AutoReleasePool.h"
+#include "ELAutoReleasePool.h"
 
 NS_BEGIN(elloop);
 

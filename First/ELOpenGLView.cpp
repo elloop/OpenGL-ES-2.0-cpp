@@ -1,11 +1,11 @@
-#include "OpenGLView.h"
+#include "ELOpenGLView.h"
 #include <tchar.h>
 
 NS_BEGIN(elloop);
 
 OpenGLView::OpenGLView() : 
-    _height(960), 
-    _width(640), 
+    _height(600), 
+    _width(400), 
     _hwnd(nullptr),
     _hInstance(nullptr),
     _config(nullptr),
@@ -126,7 +126,7 @@ void OpenGLView::destroyOpenGLES() {
 }
 
 void OpenGLView::swapBuffer() {
-
+    eglSwapBuffers(_display, _surface);
 }
 
 OpenGLView::~OpenGLView() {

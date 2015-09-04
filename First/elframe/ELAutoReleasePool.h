@@ -38,18 +38,19 @@ class PoolManager {
     static PoolManager*                 _instance;
     PoolStack                           _pools;
 
+    
+    PoolManager() {}
+    ~PoolManager() {}
+
+public:
     void purge() {
-        while (!_pools.empty()) {
+        while ( !_pools.empty() ) {
             auto pool = _pools.top();
             delete pool;
             _pools.pop();
         }
     }
-    PoolManager() {}
-    ~PoolManager() {}
 
-    friend class ELWindowApp;
-public:
     static PoolManager* getInstance() {
         if (!_instance) {
             _instance = new PoolManager();

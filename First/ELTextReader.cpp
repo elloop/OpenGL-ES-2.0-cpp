@@ -1,4 +1,4 @@
-#include "TextReader.h"
+#include "ELTextReader.h"
 #include <fstream>
 
 NS_BEGIN(elloop);

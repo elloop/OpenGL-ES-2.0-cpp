@@ -95,36 +95,46 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Director.cpp" />
-    <ClCompile Include="elframe\AutoReleasePool.cpp" />
+    <ClCompile Include="ELAppDelegate.cpp" />
+    <ClCompile Include="ELApplication.cpp" />
+    <ClCompile Include="ELApplicationProtocol.cpp" />
+    <ClCompile Include="ELDirector.cpp" />
+    <ClCompile Include="ELDrawable.cpp" />
+    <ClCompile Include="elframe\ELAutoReleasePool.cpp" />
     <ClCompile Include="ELWindowApp.cpp" />
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OpenGLView.cpp" />
-    <ClCompile Include="ShaderHelper.cpp" />
-    <ClCompile Include="ShaderProgram.cpp" />
-    <ClCompile Include="TextReader.cpp" />
+    <ClCompile Include="ELOpenGLView.cpp" />
+    <ClCompile Include="ELShaderHelper.cpp" />
+    <ClCompile Include="ELShaderProgram.cpp" />
+    <ClCompile Include="SimpleRectangle.cpp" />
+    <ClCompile Include="ELTextReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\macro_define.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h" />
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h" />
-    <ClInclude Include="Application.h" />
+    <ClInclude Include="ELAppDelegate.h" />
+    <ClInclude Include="ELApplication.h" />
     <ClInclude Include="Config.h" />
-    <ClInclude Include="Director.h" />
-    <ClInclude Include="elframe\AutoReleasePool.h" />
-    <ClInclude Include="elframe\Ref.h" />
+    <ClInclude Include="ELApplicationProtocol.h" />
+    <ClInclude Include="ELDirector.h" />
+    <ClInclude Include="ELDrawable.h" />
+    <ClInclude Include="elframe\ELAutoReleasePool.h" />
+    <ClInclude Include="elframe\ELRef.h" />
     <ClInclude Include="ELWindowApp.h" />
     <ClInclude Include="gltest.h" />
     <ClInclude Include="include\cell\CELLMath.hpp" />
     <ClInclude Include="include\elloop\Singleton.h" />
     <ClInclude Include="macros.h" />
-    <ClInclude Include="OpenGLView.h" />
-    <ClInclude Include="ShaderHelper.h" />
-    <ClInclude Include="ShaderProgram.h" />
-    <ClInclude Include="TextReader.h" />
+    <ClInclude Include="ELOpenGLView.h" />
+    <ClInclude Include="ELShaderHelper.h" />
+    <ClInclude Include="ELShaderProgram.h" />
+    <ClInclude Include="math\CELLMath.hpp" />
+    <ClInclude Include="math\ELGeometry.h" />
+    <ClInclude Include="SimpleRectangle.h" />
+    <ClInclude Include="ELTextReader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\p2c4_fragment_shader.glsl" />

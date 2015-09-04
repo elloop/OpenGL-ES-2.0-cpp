@@ -4,24 +4,27 @@
 #include "windows.h"
 #include "tchar.h"
 #include "gltest.h"
-#include "Ref.h"
+#include "ELRef.h"
+#include "math/ELGeometry.h"
 
 NS_BEGIN(elloop);
 
 class WindowEventListener {
 public:
     virtual LRESULT CALLBACK onEvent(HWND hWnd, UINT msg,
-                                     WPARAM wParam, LPARAM lParam) {}
+                                     WPARAM wParam, LPARAM lParam) {
+        return S_OK;
+    }
 };
 
 class OpenGLView : public Ref {
 public:
-    OpenGLView*     create(HINSTANCE instance, LPCTSTR winName=_T(""));
-    bool            show();
+    static OpenGLView*      create(HINSTANCE instance, LPCTSTR winName=_T(""));
+    bool                    show();
     
-    bool            initOpenGLES();
-    void            destroyOpenGLES();
-    void            swapBuffer();
+    bool                    initOpenGLES();
+    void                    destroyOpenGLES();
+    void                    swapBuffer();
 
     void setWindowEventListener(WindowEventListener* listener) {
         _windowListener = listener;
@@ -34,6 +37,9 @@ public:
     void            setWidth(float val) { _width = val; }
     float           height() const { return _height; }
     void            setHeight(float val) { _height = val; }
+    Size            frameSize() {
+        return Size(_width, _height);
+    }
 
 protected:
     OpenGLView();

@@ -3,11 +3,11 @@
 #include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "elloop/inc.h"
-#include "ShaderProgram.h"
-#include "ShaderHelper.h"
-#include "TextReader.h"
+#include "ELShaderProgram.h"
+#include "ELShaderHelper.h"
+#include "ELTextReader.h"
 #include "Config.h"
-#include "cell/CELLMath.hpp"
+#include "math/CELLMath.hpp"
 
 typedef GLuint ShaderId;
 typedef GLuint ProgramId;

@@ -10,7 +10,7 @@ public:
 protected:
     Singleton() {}
     virtual ~Singleton() {}
-private:
+protected:
     static T* _instance;
 };
 

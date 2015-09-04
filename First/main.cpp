@@ -1,8 +1,8 @@
-#include "ELWindowApp.h"
+#include "ELApplication.h"
+#include "ELAppDelegate.h"
 #include <Windows.h>
 #include <tchar.h>
 
-#include "Application.h"
 
 int CALLBACK _tWinMain(
 	HINSTANCE	hInstance, 
@@ -10,18 +10,9 @@ int CALLBACK _tWinMain(
 	LPWSTR		lpCmdLine, 
 	int			nShowCmd) 
 {
-    using elloop::Application;
+    using elloop::AppDelegate;
 
-    Application::getInstance()->init();
-    int ret = Application::getInstance()->run();
+    AppDelegate app;
+    int ret = elloop::Application::getInstance()->run();
     return ret;
-
-
-    /*  ELWindowApp app(hInstance);
-    app.setWidth(500);
-    app.setHeight(500);
-    app.run();*/
-
-
-    //MessageBox(nullptr, TEXT("hello"), TEXT("hello2"), 0);
 }

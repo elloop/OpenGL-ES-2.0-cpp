@@ -3,22 +3,30 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ELWindowApp.cpp" />
-    <ClCompile Include="ShaderProgram.cpp">
-      <Filter>glutil</Filter>
-    </ClCompile>
-    <ClCompile Include="TextReader.cpp">
-      <Filter>glutil</Filter>
-    </ClCompile>
     <ClCompile Include="gltest.cpp" />
-    <ClCompile Include="ShaderHelper.cpp">
+    <ClCompile Include="SimpleRectangle.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ELDirector.cpp" />
+    <ClCompile Include="ELApplication.cpp" />
+    <ClCompile Include="ELOpenGLView.cpp" />
+    <ClCompile Include="ELShaderProgram.cpp">
       <Filter>glutil</Filter>
     </ClCompile>
-    <ClCompile Include="elframe\AutoReleasePool.cpp">
+    <ClCompile Include="ELShaderHelper.cpp">
+      <Filter>glutil</Filter>
+    </ClCompile>
+    <ClCompile Include="ELTextReader.cpp">
+      <Filter>glutil</Filter>
+    </ClCompile>
+    <ClCompile Include="ELDrawable.cpp">
+      <Filter>glutil</Filter>
+    </ClCompile>
+    <ClCompile Include="elframe\ELAutoReleasePool.cpp">
       <Filter>elframe</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Director.cpp" />
-    <ClCompile Include="OpenGLView.cpp" />
+    <ClCompile Include="ELAppDelegate.cpp" />
+    <ClCompile Include="ELApplicationProtocol.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ELWindowApp.h" />
@@ -34,37 +42,51 @@
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderProgram.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
     <ClInclude Include="gltest.h" />
-    <ClInclude Include="TextReader.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
     <ClInclude Include="Config.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderHelper.h">
       <Filter>glutil</Filter>
     </ClInclude>
     <ClInclude Include="macros.h">
       <Filter>platform</Filter>
     </ClInclude>
-    <ClInclude Include="elframe\Ref.h">
-      <Filter>elframe</Filter>
-    </ClInclude>
     <ClInclude Include="include\cell\CELLMath.hpp">
       <Filter>include\cell</Filter>
     </ClInclude>
-    <ClInclude Include="elframe\AutoReleasePool.h">
-      <Filter>elframe</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="Director.h" />
     <ClInclude Include="include\elloop\Singleton.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLView.h" />
+    <ClInclude Include="SimpleRectangle.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ELDirector.h" />
+    <ClInclude Include="ELApplication.h" />
+    <ClInclude Include="ELOpenGLView.h" />
+    <ClInclude Include="ELShaderProgram.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="ELShaderHelper.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="ELTextReader.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="ELDrawable.h">
+      <Filter>glutil</Filter>
+    </ClInclude>
+    <ClInclude Include="elframe\ELRef.h">
+      <Filter>elframe</Filter>
+    </ClInclude>
+    <ClInclude Include="elframe\ELAutoReleasePool.h">
+      <Filter>elframe</Filter>
+    </ClInclude>
+    <ClInclude Include="math\CELLMath.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\ELGeometry.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="ELAppDelegate.h" />
+    <ClInclude Include="ELApplicationProtocol.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -84,6 +106,12 @@
     </Filter>
     <Filter Include="include\cell">
       <UniqueIdentifier>{5d324d8c-c699-4d32-af15-239b4aec7447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{2f81215b-d526-437b-96e1-d28e7e3e39d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{a3838064-233d-4017-b7ed-71df85060fdf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
