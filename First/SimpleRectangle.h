@@ -10,15 +10,16 @@ class SimpleRectangle : public ShaderProgram {
 public:
     static SimpleRectangle*     create();
     bool                        valid() const { return _valid; }
-    void                        begin() override;
-    void                        end()   override;
-    void                        render() override;
+
+    void                        begin()     override;
+    void                        end()       override;
+    void                        render()    override;
 
     attribute                   _position;
     uniform                     _mvp;
     uniform                     _color;
 protected:
-    bool init();
+    bool                        init();
     SimpleRectangle() {}
     ~SimpleRectangle() {
 

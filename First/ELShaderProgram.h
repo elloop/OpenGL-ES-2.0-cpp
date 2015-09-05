@@ -11,7 +11,7 @@ typedef GLuint  ProgramId;
 typedef int     attribute;
 typedef int     uniform;
 
-class ShaderProgram : public Ref, public Drawable
+class ShaderProgram : public Drawable
 {
 public:
     ShaderProgram(const ShaderProgram& other)                    = delete;

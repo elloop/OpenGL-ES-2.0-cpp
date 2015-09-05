@@ -87,6 +87,7 @@
     </ClInclude>
     <ClInclude Include="ELAppDelegate.h" />
     <ClInclude Include="ELApplicationProtocol.h" />
+    <ClInclude Include="ELGui.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

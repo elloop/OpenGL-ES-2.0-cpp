@@ -123,6 +123,7 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="ELDrawable.h" />
     <ClInclude Include="elframe\ELAutoReleasePool.h" />
     <ClInclude Include="elframe\ELRef.h" />
+    <ClInclude Include="ELGui.h" />
     <ClInclude Include="ELWindowApp.h" />
     <ClInclude Include="gltest.h" />
     <ClInclude Include="include\cell\CELLMath.hpp" />

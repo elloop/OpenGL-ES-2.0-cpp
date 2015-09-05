@@ -1,4 +1,3 @@
-#include "ELApplication.h"
 #include "ELAppDelegate.h"
 #include <Windows.h>
 #include <tchar.h>

@@ -1,10 +1,11 @@
 #pragma  once
 
 #include "elloop/inc.h"
+#include "ELRef.h"
 
 NS_BEGIN(elloop);
 
-class Drawable {
+class Drawable : public Ref {
 public:
     virtual void        render() {}
 };

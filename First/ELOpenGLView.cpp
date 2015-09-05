@@ -33,6 +33,10 @@ bool OpenGLView::initWithInstance(HINSTANCE instance, LPCTSTR winName) {
     _hwnd = CreateWindow(winName, winName,WS_OVERLAPPEDWINDOW, 0, 0, 
                          _width, _height, 0, 0, _hInstance, this);
 
+    if ( !initOpenGLES() ) {
+        return false;
+    }
+
     return (_hwnd != 0);
 }
 
@@ -42,9 +46,9 @@ bool OpenGLView::show() {
 
     ShowWindow(_hwnd, SW_NORMAL);
 
-    if ( !initOpenGLES() ) {
+   /* if ( !initOpenGLES() ) {
         return false;
-    }
+    }*/
 
     return true;
 }

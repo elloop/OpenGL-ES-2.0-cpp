@@ -37,7 +37,7 @@ public:
     void            setWidth(float val) { _width = val; }
     float           height() const { return _height; }
     void            setHeight(float val) { _height = val; }
-    Size            frameSize() {
+    Size            frameSize() const {
         return Size(_width, _height);
     }
 
