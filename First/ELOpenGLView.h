@@ -4,7 +4,7 @@
 #include "windows.h"
 #include "tchar.h"
 #include "gltest.h"
-#include "ELRef.h"
+#include "elgui/ELRef.h"
 #include "math/ELGeometry.h"
 
 NS_BEGIN(elloop);

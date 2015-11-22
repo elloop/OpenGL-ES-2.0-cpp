@@ -4,9 +4,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ELWindowApp.cpp" />
     <ClCompile Include="gltest.cpp" />
-    <ClCompile Include="SimpleRectangle.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="ELDirector.cpp" />
     <ClCompile Include="ELApplication.cpp" />
     <ClCompile Include="ELOpenGLView.cpp" />
@@ -22,11 +19,17 @@
     <ClCompile Include="ELDrawable.cpp">
       <Filter>glutil</Filter>
     </ClCompile>
-    <ClCompile Include="elframe\ELAutoReleasePool.cpp">
-      <Filter>elframe</Filter>
-    </ClCompile>
     <ClCompile Include="ELAppDelegate.cpp" />
     <ClCompile Include="ELApplicationProtocol.cpp" />
+    <ClCompile Include="elgui\ELAutoReleasePool.cpp">
+      <Filter>elgui</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\SimpleRectangle.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\ColorRectangle.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ELWindowApp.h" />
@@ -55,9 +58,6 @@
     <ClInclude Include="include\elloop\Singleton.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleRectangle.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="ELDirector.h" />
     <ClInclude Include="ELApplication.h" />
     <ClInclude Include="ELOpenGLView.h" />
@@ -73,12 +73,6 @@
     <ClInclude Include="ELDrawable.h">
       <Filter>glutil</Filter>
     </ClInclude>
-    <ClInclude Include="elframe\ELRef.h">
-      <Filter>elframe</Filter>
-    </ClInclude>
-    <ClInclude Include="elframe\ELAutoReleasePool.h">
-      <Filter>elframe</Filter>
-    </ClInclude>
     <ClInclude Include="math\CELLMath.hpp">
       <Filter>math</Filter>
     </ClInclude>
@@ -88,6 +82,18 @@
     <ClInclude Include="ELAppDelegate.h" />
     <ClInclude Include="ELApplicationProtocol.h" />
     <ClInclude Include="ELGui.h" />
+    <ClInclude Include="elgui\ELAutoReleasePool.h">
+      <Filter>elgui</Filter>
+    </ClInclude>
+    <ClInclude Include="elgui\ELRef.h">
+      <Filter>elgui</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\SimpleRectangle.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\ColorRectangle.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -102,17 +108,17 @@
     <Filter Include="platform">
       <UniqueIdentifier>{36c23462-6056-4d86-9664-3a5cc95871dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="elframe">
-      <UniqueIdentifier>{62294279-455b-4ce2-a072-4882864979a2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include\cell">
       <UniqueIdentifier>{5d324d8c-c699-4d32-af15-239b4aec7447}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes">
-      <UniqueIdentifier>{2f81215b-d526-437b-96e1-d28e7e3e39d1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="math">
       <UniqueIdentifier>{a3838064-233d-4017-b7ed-71df85060fdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elgui">
+      <UniqueIdentifier>{9cbeda81-6d88-42cc-bab4-3f1c9d29a68d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scenes">
+      <UniqueIdentifier>{f1c888b3-8b85-4160-bc84-c146ad04c7ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

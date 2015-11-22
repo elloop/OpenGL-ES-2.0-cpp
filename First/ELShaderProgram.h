@@ -1,7 +1,7 @@
 #pragma once
 #include "GLES2/gl2.h"
 #include "elloop/inc.h"
-#include "ELRef.h"
+#include "elgui/ELRef.h"
 #include "ELDrawable.h"
 
 NS_BEGIN(elloop);

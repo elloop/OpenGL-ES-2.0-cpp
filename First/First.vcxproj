@@ -57,7 +57,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)elframe;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)elframe;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -100,15 +100,16 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClCompile Include="ELApplicationProtocol.cpp" />
     <ClCompile Include="ELDirector.cpp" />
     <ClCompile Include="ELDrawable.cpp" />
-    <ClCompile Include="elframe\ELAutoReleasePool.cpp" />
+    <ClCompile Include="elgui\ELAutoReleasePool.cpp" />
     <ClCompile Include="ELWindowApp.cpp" />
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ELOpenGLView.cpp" />
     <ClCompile Include="ELShaderHelper.cpp" />
     <ClCompile Include="ELShaderProgram.cpp" />
-    <ClCompile Include="SimpleRectangle.cpp" />
     <ClCompile Include="ELTextReader.cpp" />
+    <ClCompile Include="scenes\ColorRectangle.cpp" />
+    <ClCompile Include="scenes\SimpleRectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h" />
@@ -121,9 +122,9 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="ELApplicationProtocol.h" />
     <ClInclude Include="ELDirector.h" />
     <ClInclude Include="ELDrawable.h" />
-    <ClInclude Include="elframe\ELAutoReleasePool.h" />
-    <ClInclude Include="elframe\ELRef.h" />
     <ClInclude Include="ELGui.h" />
+    <ClInclude Include="elgui\ELAutoReleasePool.h" />
+    <ClInclude Include="elgui\ELRef.h" />
     <ClInclude Include="ELWindowApp.h" />
     <ClInclude Include="gltest.h" />
     <ClInclude Include="include\cell\CELLMath.hpp" />
@@ -134,8 +135,9 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="ELShaderProgram.h" />
     <ClInclude Include="math\CELLMath.hpp" />
     <ClInclude Include="math\ELGeometry.h" />
-    <ClInclude Include="SimpleRectangle.h" />
     <ClInclude Include="ELTextReader.h" />
+    <ClInclude Include="scenes\ColorRectangle.h" />
+    <ClInclude Include="scenes\SimpleRectangle.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\p2c4_fragment_shader.glsl" />

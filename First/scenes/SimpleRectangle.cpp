@@ -1,11 +1,11 @@
-#include "SimpleRectangle.h"
+#include "scenes/SimpleRectangle.h"
 #include "ELDirector.h"
 #include "math/ELGeometry.h"
 
 NS_BEGIN(elloop);
 
-const std::string SimpleRectangle::sc_VertexShaderName = "shaders/p2c4_vertex_shader.glsl";
-const std::string SimpleRectangle::sc_FragmentShaderName = "shaders/p2c4_fragment_shader.glsl";
+const std::string SimpleRectangle::sc_VertexShaderName = "shaders/simple_rectange_vs.glsl";
+const std::string SimpleRectangle::sc_FragmentShaderName = "shaders/simple_rectangle_fs.glsl";
 
 void SimpleRectangle::render() {
     //glClearColor(1, 1, 0, 1);

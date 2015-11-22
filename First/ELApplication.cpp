@@ -1,6 +1,6 @@
 #include "ELApplication.h"
 #include <ctime>
-#include "ELAutoReleasePool.h"
+#include "elgui/ELAutoReleasePool.h"
 #include "ELDirector.h"
 #include "ELOpenGLView.h"
 NS_BEGIN(elloop);

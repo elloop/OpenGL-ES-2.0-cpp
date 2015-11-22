@@ -1,6 +1,7 @@
 #include "ELAppDelegate.h"
 #include "ELDirector.h"
-#include "SimpleRectangle.h"
+#include "scenes/SimpleRectangle.h"
+#include "scenes/ColorRectangle.h"
 
 NS_BEGIN(elloop);
 
@@ -8,11 +9,15 @@ NS_BEGIN(elloop);
 bool AppDelegate::applicationDidFinishLaunching() {
 
     auto director = Director::getInstance();
-    if (director) {
+    /*if (director) {
         auto simpleRectangle = SimpleRectangle::create();
         director->runWithScene(simpleRectangle);
     }
-
+*/
+    if (director) {
+        auto colorRect = ColorRectangle::create();
+        director->runWithScene(colorRect);
+    }
 
     return true;
 }
