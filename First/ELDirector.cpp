@@ -5,36 +5,42 @@
 NS_BEGIN(elloop);
 
 
-Director::Director() :
-    _glView(nullptr),
-    _currentScene(nullptr)
-{
-}
+Director::Director() 
+: _glView(nullptr)
+, _currentScene(nullptr)
+{}
 
-void Director::setGLView(OpenGLView* glView) {
+void Director::setGLView(OpenGLView* glView)
+{
     assert(glView);
     glView->retain();
-    if (_glView) {
+    if ( _glView )
+    {
         _glView->release();
     }
     _glView = glView;
 }
 
-void Director::mainLoop() {
+void Director::mainLoop()
+{
 
     drawScenes();
 
-    if (_glView) {
+    if ( _glView )
+    {
         _glView->swapBuffer();
     }
 }
 
-void Director::end() {
+void Director::end()
+{
     delete _instance;
 }
 
-Director::~Director() {
-    if (_glView) {
+Director::~Director()
+{
+    if ( _glView )
+    {
         _glView->release();
         _glView = nullptr;
     }
@@ -43,29 +49,36 @@ Director::~Director() {
     _currentScene = nullptr;
 }
 
-void Director::drawScenes() {
-    if (_currentScene) {
+void Director::drawScenes()
+{
+    if ( _currentScene )
+    {
         _currentScene->render();
     }
 }
 
-Size Director::getFrameSize() const {
+Size Director::getFrameSize() const
+{
     return ( _glView == nullptr ) ? Size() : _glView->frameSize();
 }
 
-void Director::runWithScene(Drawable* drawable) {
+void Director::runWithScene(Drawable* drawable)
+{
     assert(drawable);
     drawable->retain();
     _sceneStack.push(drawable);
-    if (_currentScene) {
+    if ( _currentScene )
+    {
         _currentScene->release();
     }
     _currentScene = drawable;
 }
 
-void Director::clearSceneStack() {
+void Director::clearSceneStack()
+{
     Drawable* temp(nullptr);
-    while (!_sceneStack.empty()) {
+    while ( !_sceneStack.empty() )
+    {
         temp = _sceneStack.top();
         temp->release();
         _sceneStack.pop();

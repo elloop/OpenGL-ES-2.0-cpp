@@ -6,15 +6,17 @@
 NS_BEGIN(elloop);
 
 
-bool AppDelegate::applicationDidFinishLaunching() {
+bool AppDelegate::applicationDidFinishLaunching()
+{
 
     auto director = Director::getInstance();
     /*if (director) {
         auto simpleRectangle = SimpleRectangle::create();
         director->runWithScene(simpleRectangle);
-    }
-*/
-    if (director) {
+        }
+        */
+    if ( director )
+    {
         auto colorRect = ColorRectangle::create();
         director->runWithScene(colorRect);
     }
@@ -22,11 +24,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     return true;
 }
 
-AppDelegate::AppDelegate() : Application() {
+AppDelegate::AppDelegate() : Application()
+{
 
 }
 
-AppDelegate::~AppDelegate() {
+AppDelegate::~AppDelegate()
+{
 
 }
 

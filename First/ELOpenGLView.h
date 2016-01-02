@@ -9,35 +9,53 @@
 
 NS_BEGIN(elloop);
 
-class WindowEventListener {
+class WindowEventListener
+{
 public:
     virtual LRESULT CALLBACK onEvent(HWND hWnd, UINT msg,
-                                     WPARAM wParam, LPARAM lParam) {
+                                     WPARAM wParam, LPARAM lParam)
+    {
         return S_OK;
     }
 };
 
-class OpenGLView : public Ref {
+class OpenGLView : public Ref
+{
 public:
-    static OpenGLView*      create(HINSTANCE instance, LPCTSTR winName=_T(""));
+    static OpenGLView*      create(HINSTANCE instance, LPCTSTR winName = _T(""));
     bool                    show();
-    
+
     bool                    initOpenGLES();
     void                    destroyOpenGLES();
     void                    swapBuffer();
 
-    void setWindowEventListener(WindowEventListener* listener) {
+    void setWindowEventListener(WindowEventListener* listener)
+    {
         _windowListener = listener;
     }
-    WindowEventListener* getWindowEventListener() const {
+    WindowEventListener* getWindowEventListener() const
+    {
         return _windowListener;
     }
 
-    float           width() const { return _width; }
-    void            setWidth(float val) { _width = val; }
-    float           height() const { return _height; }
-    void            setHeight(float val) { _height = val; }
-    Size            frameSize() const {
+    float           width() const
+    {
+        return _width;
+    }
+    void            setWidth(float val)
+    {
+        _width = val;
+    }
+    float           height() const
+    {
+        return _height;
+    }
+    void            setHeight(float val)
+    {
+        _height = val;
+    }
+    Size            frameSize() const
+    {
         return Size(_width, _height);
     }
 
@@ -45,7 +63,7 @@ protected:
     OpenGLView();
     ~OpenGLView();
     bool initWithInstance(HINSTANCE instance, LPCTSTR winName);
-    static LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, 
+    static LRESULT CALLBACK wndProc(HWND hWnd, UINT msg,
                                     WPARAM wParam, LPARAM lParam);
 private:
     WindowCallback          _windowCallback;

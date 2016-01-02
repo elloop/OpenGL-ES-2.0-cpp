@@ -4,7 +4,8 @@
 
 NS_BEGIN(elloop);
 
-class AppDelegate : public Application {
+class AppDelegate : public Application
+{
 public:
     AppDelegate();
     ~AppDelegate();
