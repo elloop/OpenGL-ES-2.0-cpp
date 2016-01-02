@@ -41,6 +41,9 @@
     <ClCompile Include="include\gl_include.cpp">
       <Filter>include</Filter>
     </ClCompile>
+    <ClCompile Include="scenes\Circle.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\CELLMath.hpp">
@@ -128,6 +131,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\EGL\eglplatform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\Circle.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include_scenes.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

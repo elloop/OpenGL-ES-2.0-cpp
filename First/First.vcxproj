@@ -103,6 +103,7 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClCompile Include="basic\ELAutoReleasePool.cpp" />
     <ClCompile Include="include\gl_include.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="scenes\Circle.cpp" />
     <ClCompile Include="scenes\ColorRectangle.cpp" />
     <ClCompile Include="scenes\ELDrawable.cpp" />
     <ClCompile Include="scenes\ELShaderProgram.cpp" />
@@ -132,8 +133,10 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="include\GLES2\gl2platform.h" />
     <ClInclude Include="include\gl_include.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
+    <ClInclude Include="include_scenes.h" />
     <ClInclude Include="math\CELLMath.hpp" />
     <ClInclude Include="math\ELGeometry.h" />
+    <ClInclude Include="scenes\Circle.h" />
     <ClInclude Include="scenes\ColorRectangle.h" />
     <ClInclude Include="scenes\ELDrawable.h" />
     <ClInclude Include="scenes\ELShaderProgram.h" />

@@ -9,14 +9,14 @@ NS_BEGIN(elloop);
 class ColorRectangle : public ShaderProgram
 {
 public:
-    static ColorRectangle*     create();
+    static ColorRectangle*      create();
     void                        begin()     override;
     void                        end()       override;
     void                        render()    override;
 
-    attribute                   _position;
-    uniform                     _mvp;
-    uniform                     _color;
+    attribute                   position_;
+    uniform                     mvp_;
+    attribute                   color_;
 protected:
     bool                        init();
     ColorRectangle()
