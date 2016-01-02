@@ -2,131 +2,170 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ELWindowApp.cpp" />
-    <ClCompile Include="gltest.cpp" />
-    <ClCompile Include="ELDirector.cpp" />
-    <ClCompile Include="ELApplication.cpp" />
-    <ClCompile Include="ELOpenGLView.cpp" />
-    <ClCompile Include="ELShaderProgram.cpp">
-      <Filter>glutil</Filter>
+    <ClCompile Include="app_control\ELAppDelegate.cpp">
+      <Filter>app_control</Filter>
     </ClCompile>
-    <ClCompile Include="ELShaderHelper.cpp">
-      <Filter>glutil</Filter>
+    <ClCompile Include="app_control\ELApplication.cpp">
+      <Filter>app_control</Filter>
     </ClCompile>
-    <ClCompile Include="ELTextReader.cpp">
-      <Filter>glutil</Filter>
+    <ClCompile Include="app_control\ELApplicationProtocol.cpp">
+      <Filter>app_control</Filter>
     </ClCompile>
-    <ClCompile Include="ELDrawable.cpp">
-      <Filter>glutil</Filter>
+    <ClCompile Include="app_control\ELDirector.cpp">
+      <Filter>app_control</Filter>
     </ClCompile>
-    <ClCompile Include="ELAppDelegate.cpp" />
-    <ClCompile Include="ELApplicationProtocol.cpp" />
-    <ClCompile Include="elgui\ELAutoReleasePool.cpp">
-      <Filter>elgui</Filter>
-    </ClCompile>
-    <ClCompile Include="scenes\SimpleRectangle.cpp">
-      <Filter>scenes</Filter>
+    <ClCompile Include="app_control\ELOpenGLView.cpp">
+      <Filter>app_control</Filter>
     </ClCompile>
     <ClCompile Include="scenes\ColorRectangle.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
+    <ClCompile Include="scenes\ELDrawable.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\ELShaderProgram.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\SimpleRectangle.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="basic\ELAutoReleasePool.cpp">
+      <Filter>basic</Filter>
+    </ClCompile>
+    <ClCompile Include="util\ELShaderHelper.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\ELTextReader.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="include\gl_include.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ELWindowApp.h" />
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\macro_define.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="gltest.h" />
-    <ClInclude Include="Config.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
-    <ClInclude Include="macros.h">
-      <Filter>platform</Filter>
-    </ClInclude>
-    <ClInclude Include="include\cell\CELLMath.hpp">
-      <Filter>include\cell</Filter>
-    </ClInclude>
-    <ClInclude Include="include\elloop\Singleton.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="ELDirector.h" />
-    <ClInclude Include="ELApplication.h" />
-    <ClInclude Include="ELOpenGLView.h" />
-    <ClInclude Include="ELShaderProgram.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
-    <ClInclude Include="ELShaderHelper.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
-    <ClInclude Include="ELTextReader.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
-    <ClInclude Include="ELDrawable.h">
-      <Filter>glutil</Filter>
-    </ClInclude>
     <ClInclude Include="math\CELLMath.hpp">
       <Filter>math</Filter>
     </ClInclude>
     <ClInclude Include="math\ELGeometry.h">
       <Filter>math</Filter>
     </ClInclude>
-    <ClInclude Include="ELAppDelegate.h" />
-    <ClInclude Include="ELApplicationProtocol.h" />
-    <ClInclude Include="ELGui.h" />
-    <ClInclude Include="elgui\ELAutoReleasePool.h">
-      <Filter>elgui</Filter>
+    <ClInclude Include="app_control\ELAppDelegate.h">
+      <Filter>app_control</Filter>
     </ClInclude>
-    <ClInclude Include="elgui\ELRef.h">
-      <Filter>elgui</Filter>
+    <ClInclude Include="app_control\ELApplication.h">
+      <Filter>app_control</Filter>
+    </ClInclude>
+    <ClInclude Include="app_control\ELApplicationProtocol.h">
+      <Filter>app_control</Filter>
+    </ClInclude>
+    <ClInclude Include="app_control\ELDirector.h">
+      <Filter>app_control</Filter>
+    </ClInclude>
+    <ClInclude Include="app_control\ELOpenGLView.h">
+      <Filter>app_control</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\ColorRectangle.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\ELDrawable.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\ELShaderProgram.h">
+      <Filter>scenes</Filter>
     </ClInclude>
     <ClInclude Include="scenes\SimpleRectangle.h">
       <Filter>scenes</Filter>
     </ClInclude>
-    <ClInclude Include="scenes\ColorRectangle.h">
-      <Filter>scenes</Filter>
+    <ClInclude Include="basic\ELAutoReleasePool.h">
+      <Filter>basic</Filter>
+    </ClInclude>
+    <ClInclude Include="basic\ELRef.h">
+      <Filter>basic</Filter>
+    </ClInclude>
+    <ClInclude Include="util\ELShaderHelper.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\ELTextReader.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gl_include.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\elloop\inc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\elloop\log.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\elloop\macro_define.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\elloop\print_util.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\elloop\Singleton.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\elloop\stl_header.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLES2\gl2.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLES2\gl2ext.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLES2\gl2platform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\KHR\khrplatform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EGL\egl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EGL\eglext.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EGL\eglplatform.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
       <UniqueIdentifier>{d7d7bc57-e66b-4511-88f3-07973997aced}</UniqueIdentifier>
     </Filter>
-    <Filter Include="glutil">
-      <UniqueIdentifier>{a1e75dfd-921f-4ad1-b2e5-2ee15376d438}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="shaders">
-      <UniqueIdentifier>{75ef41fa-eca0-486d-8880-0119bb8544d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="platform">
-      <UniqueIdentifier>{36c23462-6056-4d86-9664-3a5cc95871dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\cell">
-      <UniqueIdentifier>{5d324d8c-c699-4d32-af15-239b4aec7447}</UniqueIdentifier>
-    </Filter>
     <Filter Include="math">
       <UniqueIdentifier>{a3838064-233d-4017-b7ed-71df85060fdf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="elgui">
-      <UniqueIdentifier>{9cbeda81-6d88-42cc-bab4-3f1c9d29a68d}</UniqueIdentifier>
     </Filter>
     <Filter Include="scenes">
       <UniqueIdentifier>{f1c888b3-8b85-4160-bc84-c146ad04c7ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders_src">
+      <UniqueIdentifier>{75ef41fa-eca0-486d-8880-0119bb8544d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic">
+      <UniqueIdentifier>{7c6d969c-563f-4f55-a6ad-4ffbf6589a41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="app_control">
+      <UniqueIdentifier>{5d7cf6c7-952b-4328-a890-37ed6cf672f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{a7310442-5f1d-44e8-8d4c-96d644c1c608}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\p2c4_fragment_shader.glsl">
-      <Filter>shaders</Filter>
+    <None Include="shaders_src\color_rectange_vs.glsl">
+      <Filter>shaders_src</Filter>
     </None>
-    <None Include="shaders\p2c4_vertex_shader.glsl">
-      <Filter>shaders</Filter>
+    <None Include="shaders_src\color_rectangle_fs.glsl">
+      <Filter>shaders_src</Filter>
+    </None>
+    <None Include="shaders_src\simple_rectange_vs.glsl">
+      <Filter>shaders_src</Filter>
+    </None>
+    <None Include="shaders_src\simple_rectangle_fs.glsl">
+      <Filter>shaders_src</Filter>
     </None>
   </ItemGroup>
 </Project>

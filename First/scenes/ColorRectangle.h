@@ -1,6 +1,6 @@
 #pragma  once
 
-#include "gltest.h"
+#include "gl_include.h"
 #include "ELShaderProgram.h"
 
 NS_BEGIN(elloop);
@@ -10,11 +10,6 @@ class ColorRectangle : public ShaderProgram
 {
 public:
     static ColorRectangle*     create();
-    bool                        valid() const
-    {
-        return _valid;
-    }
-
     void                        begin()     override;
     void                        end()       override;
     void                        render()    override;
@@ -25,15 +20,12 @@ public:
 protected:
     bool                        init();
     ColorRectangle()
-    {}
-    ~ColorRectangle()
     {
-
+        vsFileName_ = "shaders/color_rectange_vs.glsl";
+        fsFileName_ = "shaders/color_rectangle_fs.glsl";
     }
-private:
-    bool                        _valid;
-    static const std::string    sc_VertexShaderName;
-    static const std::string    sc_FragmentShaderName;
+    ~ColorRectangle()
+    {}
 };
 
 

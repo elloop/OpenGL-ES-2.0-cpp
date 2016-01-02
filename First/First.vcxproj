@@ -73,7 +73,7 @@ del /s /q /f "$(OutDir)\libGLESv2.dll"
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)prebuilt\*.dll" "$(OutDir)" /D /E /I /F /Y
-xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
+xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -95,53 +95,57 @@ xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ELAppDelegate.cpp" />
-    <ClCompile Include="ELApplication.cpp" />
-    <ClCompile Include="ELApplicationProtocol.cpp" />
-    <ClCompile Include="ELDirector.cpp" />
-    <ClCompile Include="ELDrawable.cpp" />
-    <ClCompile Include="elgui\ELAutoReleasePool.cpp" />
-    <ClCompile Include="ELWindowApp.cpp" />
-    <ClCompile Include="gltest.cpp" />
+    <ClCompile Include="app_control\ELAppDelegate.cpp" />
+    <ClCompile Include="app_control\ELApplication.cpp" />
+    <ClCompile Include="app_control\ELApplicationProtocol.cpp" />
+    <ClCompile Include="app_control\ELDirector.cpp" />
+    <ClCompile Include="app_control\ELOpenGLView.cpp" />
+    <ClCompile Include="basic\ELAutoReleasePool.cpp" />
+    <ClCompile Include="include\gl_include.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ELOpenGLView.cpp" />
-    <ClCompile Include="ELShaderHelper.cpp" />
-    <ClCompile Include="ELShaderProgram.cpp" />
-    <ClCompile Include="ELTextReader.cpp" />
     <ClCompile Include="scenes\ColorRectangle.cpp" />
+    <ClCompile Include="scenes\ELDrawable.cpp" />
+    <ClCompile Include="scenes\ELShaderProgram.cpp" />
     <ClCompile Include="scenes\SimpleRectangle.cpp" />
+    <ClCompile Include="util\ELShaderHelper.cpp" />
+    <ClCompile Include="util\ELTextReader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\inc.h" />
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\macro_define.h" />
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\print_util.h" />
-    <ClInclude Include="..\..\..\..\md\training_ground\include\elloop\common\stl_header.h" />
-    <ClInclude Include="ELAppDelegate.h" />
-    <ClInclude Include="ELApplication.h" />
-    <ClInclude Include="Config.h" />
-    <ClInclude Include="ELApplicationProtocol.h" />
-    <ClInclude Include="ELDirector.h" />
-    <ClInclude Include="ELDrawable.h" />
-    <ClInclude Include="ELGui.h" />
-    <ClInclude Include="elgui\ELAutoReleasePool.h" />
-    <ClInclude Include="elgui\ELRef.h" />
-    <ClInclude Include="ELWindowApp.h" />
-    <ClInclude Include="gltest.h" />
-    <ClInclude Include="include\cell\CELLMath.hpp" />
+    <ClInclude Include="app_control\ELAppDelegate.h" />
+    <ClInclude Include="app_control\ELApplication.h" />
+    <ClInclude Include="app_control\ELApplicationProtocol.h" />
+    <ClInclude Include="app_control\ELDirector.h" />
+    <ClInclude Include="app_control\ELOpenGLView.h" />
+    <ClInclude Include="basic\ELAutoReleasePool.h" />
+    <ClInclude Include="basic\ELRef.h" />
+    <ClInclude Include="include\EGL\egl.h" />
+    <ClInclude Include="include\EGL\eglext.h" />
+    <ClInclude Include="include\EGL\eglplatform.h" />
+    <ClInclude Include="include\elloop\inc.h" />
+    <ClInclude Include="include\elloop\log.h" />
+    <ClInclude Include="include\elloop\macro_define.h" />
+    <ClInclude Include="include\elloop\print_util.h" />
     <ClInclude Include="include\elloop\Singleton.h" />
-    <ClInclude Include="macros.h" />
-    <ClInclude Include="ELOpenGLView.h" />
-    <ClInclude Include="ELShaderHelper.h" />
-    <ClInclude Include="ELShaderProgram.h" />
+    <ClInclude Include="include\elloop\stl_header.h" />
+    <ClInclude Include="include\GLES2\gl2.h" />
+    <ClInclude Include="include\GLES2\gl2ext.h" />
+    <ClInclude Include="include\GLES2\gl2platform.h" />
+    <ClInclude Include="include\gl_include.h" />
+    <ClInclude Include="include\KHR\khrplatform.h" />
     <ClInclude Include="math\CELLMath.hpp" />
     <ClInclude Include="math\ELGeometry.h" />
-    <ClInclude Include="ELTextReader.h" />
     <ClInclude Include="scenes\ColorRectangle.h" />
+    <ClInclude Include="scenes\ELDrawable.h" />
+    <ClInclude Include="scenes\ELShaderProgram.h" />
     <ClInclude Include="scenes\SimpleRectangle.h" />
+    <ClInclude Include="util\ELShaderHelper.h" />
+    <ClInclude Include="util\ELTextReader.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\p2c4_fragment_shader.glsl" />
-    <None Include="shaders\p2c4_vertex_shader.glsl" />
+    <None Include="shaders_src\color_rectange_vs.glsl" />
+    <None Include="shaders_src\color_rectangle_fs.glsl" />
+    <None Include="shaders_src\simple_rectange_vs.glsl" />
+    <None Include="shaders_src\simple_rectangle_fs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

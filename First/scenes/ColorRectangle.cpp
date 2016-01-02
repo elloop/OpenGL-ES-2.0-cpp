@@ -1,11 +1,8 @@
 #include "scenes/ColorRectangle.h"
-#include "ELDirector.h"
+#include "app_control/ELDirector.h"
 #include "math/ELGeometry.h"
 
 NS_BEGIN(elloop);
-
-const std::string ColorRectangle::sc_VertexShaderName = "shaders/color_rectange_vs.glsl";
-const std::string ColorRectangle::sc_FragmentShaderName = "shaders/color_rectangle_fs.glsl";
 
 void ColorRectangle::render()
 {
@@ -46,7 +43,7 @@ void ColorRectangle::render()
 
 void ColorRectangle::begin()
 {
-    glUseProgram(_programId);
+    glUseProgram(programId_);
     glEnableVertexAttribArray(_position);
 }
 
@@ -58,14 +55,14 @@ void ColorRectangle::end()
 
 bool ColorRectangle::init()
 {
-    _valid = ShaderProgram::initWithFile(sc_VertexShaderName, sc_FragmentShaderName);
-    if ( _valid )
+    valid_ = ShaderProgram::initWithFile(vsFileName_, fsFileName_);
+    if ( valid_ )
     {
-        _position = glGetAttribLocation(_programId, "_position");
-        _color = glGetUniformLocation(_programId, "_color");
-        _mvp = glGetUniformLocation(_programId, "_mvp");
+        _position = glGetAttribLocation(programId_, "_position");
+        _color = glGetUniformLocation(programId_, "_color");
+        _mvp = glGetUniformLocation(programId_, "_mvp");
     }
-    return _valid;
+    return valid_;
 }
 
 ColorRectangle* ColorRectangle::create()

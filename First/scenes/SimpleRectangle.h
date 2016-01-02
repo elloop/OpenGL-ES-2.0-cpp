@@ -1,33 +1,34 @@
 #pragma  once
 
-#include "gltest.h"
+#include "gl_include.h"
 #include "ELShaderProgram.h"
+#include <string>
 
 NS_BEGIN(elloop);
 
 
-class SimpleRectangle : public ShaderProgram {
+class SimpleRectangle : public ShaderProgram
+{
 public:
     static SimpleRectangle*     create();
-    bool                        valid() const { return _valid; }
+
 
     void                        begin()     override;
     void                        end()       override;
     void                        render()    override;
 
-    attribute                   _position;
-    uniform                     _mvp;
-    uniform                     _color;
+    attribute                   position_;
+    uniform                     mvp_;
+    uniform                     color_;
 protected:
     bool                        init();
-    SimpleRectangle() {}
-    ~SimpleRectangle() {
-
+    SimpleRectangle() 
+    {
+        vsFileName_ = "shaders/simple_rectange_vs.glsl";
+        fsFileName_ = "shaders/simple_rectangle_fs.glsl";
     }
-private:
-    bool                        _valid;
-    static const std::string    sc_VertexShaderName;
-    static const std::string    sc_FragmentShaderName;
+    ~SimpleRectangle()
+    {}
 };
 
 

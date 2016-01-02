@@ -10,3 +10,5 @@
 //#define noexcept _NOEXCEPT
 #define _Pragma __pragma 
 #endif
+
+#define BREAK_IF(cond) if (cond) break;
