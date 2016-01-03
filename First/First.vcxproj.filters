@@ -44,6 +44,9 @@
     <ClCompile Include="scenes\Circle.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
+    <ClCompile Include="scenes\RotateRectangle.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\CELLMath.hpp">
@@ -138,6 +141,9 @@
     </ClInclude>
     <ClInclude Include="include_scenes.h">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\RotateRectangle.h">
+      <Filter>scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,11 +6,8 @@
 NS_BEGIN(elloop);
 
 
-
 void Circle::render()
 {
-    
-
     using namespace CELL;
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -26,7 +23,9 @@ void Circle::render()
 
     matrix4 screenProj = ortho<float>(0, width, height, 0, -100.0f, 100);
 
+    // angle between every two consecutive triangles.
     const int Delta = 1;
+    // total points = triangle's count + 1 + center
     const int PointNeeded = 360 / Delta + 1 + 1;
     Vertex ary2[PointNeeded] = { 0 };
 
@@ -34,6 +33,8 @@ void Circle::render()
     float pi = 3.1415926;
     float centerX = 100;
     float centerY = 100; 
+
+    // center location
     ary2[0].pos.x = centerX;
     ary2[0].pos.y = centerY;
     ary2[0].color = {0, 255, 0, 255};

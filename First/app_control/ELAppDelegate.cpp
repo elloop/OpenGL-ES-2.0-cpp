@@ -21,8 +21,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     director->pushScene(colorRect);*/
 
     // circle.
-    auto circle = Circle::create();
-    director->pushScene(circle);
+    /*auto circle = Circle::create();
+    director->pushScene(circle);*/
+
+    // rotate.
+    auto rotateRectangle = RotateRectangle::create();
+    director->pushScene(rotateRectangle);
 
     return true;
 }

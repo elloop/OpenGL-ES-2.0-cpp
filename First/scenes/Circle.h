@@ -28,8 +28,8 @@ protected:
     bool                init();
     Circle()
     {
-        vsFileName_ = "shaders/circle_vs.glsl";
-        fsFileName_ = "shaders/circle_fs.glsl";
+        vsFileName_ = "shaders/color_rectange_vs.glsl";
+        fsFileName_ = "shaders/color_rectange_fs.glsl";
     }
     ~Circle()
     {}

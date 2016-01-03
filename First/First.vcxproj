@@ -107,6 +107,7 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClCompile Include="scenes\ColorRectangle.cpp" />
     <ClCompile Include="scenes\ELDrawable.cpp" />
     <ClCompile Include="scenes\ELShaderProgram.cpp" />
+    <ClCompile Include="scenes\RotateRectangle.cpp" />
     <ClCompile Include="scenes\SimpleRectangle.cpp" />
     <ClCompile Include="util\ELShaderHelper.cpp" />
     <ClCompile Include="util\ELTextReader.cpp" />
@@ -140,6 +141,7 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="scenes\ColorRectangle.h" />
     <ClInclude Include="scenes\ELDrawable.h" />
     <ClInclude Include="scenes\ELShaderProgram.h" />
+    <ClInclude Include="scenes\RotateRectangle.h" />
     <ClInclude Include="scenes\SimpleRectangle.h" />
     <ClInclude Include="util\ELShaderHelper.h" />
     <ClInclude Include="util\ELTextReader.h" />
