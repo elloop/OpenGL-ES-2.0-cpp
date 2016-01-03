@@ -5,6 +5,8 @@
 #include "scenes/ColorRectangle.h"
 #include "scenes/Circle.h"
 #include "scenes/RotateRectangle.h"
+#include "scenes/TextureRectangle1.h"
+
 
 #endif //OPENGL_ES_CPP_DRAWABLE_H
 

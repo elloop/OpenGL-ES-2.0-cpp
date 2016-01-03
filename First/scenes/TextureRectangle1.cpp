@@ -1,4 +1,4 @@
-#include "scenes/RotateRectangle.h"
+#include "scenes/TextureRectangle1.h"
 #include "app_control/ELDirector.h"
 #include "math/ELGeometry.h"
 
@@ -12,7 +12,7 @@ struct Vertex
     Rgba4Byte   color;
 };
 
-void RotateRectangle::render()
+void TextureRectangle1::render()
 {
     using namespace CELL;
 
@@ -41,31 +41,6 @@ void RotateRectangle::render()
         float2{ x + w, y + h }, Rgba4Byte(255, 255, 255, 1),
     };
 
-#define USE_MATRIX  0
-#if USE_MATRIX == 1
-    matrix4 matTransToOrigin;
-    matTransToOrigin.translate(-150, -150, 0); // move center to origin.
-
-    static float delta = 0;
-    matrix4 matRotate;
-    matRotate.rotateZ(delta);
-    delta += 1;
-
-    matrix4 matTransback;
-    matTransback.translate(150, 150, 0);
-
-    matrix4 matRotateSelf = matTransback * (matRotate * matTransToOrigin);
-
-    screenProj = screenProj * matRotateSelf;
-#else
-    static float delta = 0;
-    delta += 1;
-    // rotate according to axis Z, (0, 0).
-    quaternion quat = angleAxis(delta, float3(0, 0, 1));
-    matrix4 matMVP = makeTransform(float3(0, 0, 0), float3(1, 1, 1), quat);
-    screenProj = screenProj * matMVP;
-#endif
-
     glUniformMatrix4fv(mvp_, 1, false, screenProj.data());
     glVertexAttribPointer(position_, 2, GL_FLOAT, false, sizeof( Vertex ), ary);
     glVertexAttribPointer(color_, 4, GL_UNSIGNED_BYTE, true, sizeof( Vertex ), &( ary[0].color ));
@@ -74,21 +49,21 @@ void RotateRectangle::render()
     end();
 }
 
-void RotateRectangle::begin()
+void TextureRectangle1::begin()
 {
     glUseProgram(programId_);
     glEnableVertexAttribArray(position_);
     glEnableVertexAttribArray(color_);
 }
 
-void RotateRectangle::end()
+void TextureRectangle1::end()
 {
     glDisableVertexAttribArray(color_);
     glDisableVertexAttribArray(position_);
     glUseProgram(0);
 }
 
-bool RotateRectangle::init()
+bool TextureRectangle1::init()
 {
     valid_ = ShaderProgram::initWithFile(vsFileName_, fsFileName_);
     if ( valid_ )
@@ -100,9 +75,9 @@ bool RotateRectangle::init()
     return valid_;
 }
 
-RotateRectangle* RotateRectangle::create()
+TextureRectangle1* TextureRectangle1::create()
 {
-    auto * self = new RotateRectangle();
+    auto * self = new TextureRectangle1();
     if ( self && self->init() )
     {
         self->autorelease();

@@ -25,8 +25,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     director->pushScene(circle);*/
 
     // rotate.
-    auto rotateRectangle = RotateRectangle::create();
-    director->pushScene(rotateRectangle);
+   /* auto rotateRectangle = RotateRectangle::create();
+    director->pushScene(rotateRectangle);*/
+
+    // texture rectangle 1.
+    auto texture1 = TextureRectangle1::create();
+    director->pushScene(texture1);
 
     return true;
 }
