@@ -12,73 +12,89 @@ NS_BEGIN(elloop);
 class Ref;
 class PoolManager;
 
-class AutoReleasePool {
+class AutoReleasePool
+{
     typedef std::vector<Ref*> ObjectList;
     void purge();
 
     friend class Ref;
     friend class PoolManager;
 
-    void push(Ref* ref) {
+    void push(Ref* ref)
+    {
         _objs.push_back(ref);
     }
 
-    AutoReleasePool() {
+    AutoReleasePool()
+    {
         _objs.clear();
     }
-    ~AutoReleasePool() {
+    ~AutoReleasePool()
+    {
         purge();
     }
     ObjectList  _objs;
 };
 
-class PoolManager {
+class PoolManager
+{
     typedef std::stack<AutoReleasePool*> PoolStack;
 
-    static PoolManager*                 _instance;
-    PoolStack                           _pools;
+    static PoolManager*                 instance_;
+    PoolStack                           pools_;
 
-    
+
     PoolManager() {}
     ~PoolManager() {}
 
 public:
-    void purge() {
-        while ( !_pools.empty() ) {
-            auto pool = _pools.top();
+    void purge()
+    {
+        while (!pools_.empty())
+        {
+            auto pool = pools_.top();
             delete pool;
-            _pools.pop();
+            pools_.pop();
         }
     }
 
-    static PoolManager* getInstance() {
-        if (!_instance) {
-            _instance = new PoolManager();
+    static PoolManager* getInstance()
+    {
+        if (!instance_)
+        {
+            instance_ = new PoolManager();
         }
-        return _instance;
+        return instance_;
     }
 
-    void push() {
+    void push()
+    {
         auto pool = new AutoReleasePool();
-        _pools.push(pool);
+        pools_.push(pool);
     }
-    void pop() {
-        if (!_pools.empty()) {
-            delete _pools.top();
-            _pools.pop();
+    void pop()
+    {
+        if (!pools_.empty())
+        {
+            delete pools_.top();
+            pools_.pop();
         }
     }
-    void autorelease(Ref* ref) {
-        if (_pools.empty()) {
+    void autorelease(Ref* ref)
+    {
+        if (pools_.empty())
+        {
             push();
         }
-        auto pool = _pools.top();
+        auto pool = pools_.top();
         pool->push(ref);
     }
 
-    void recycle() {
-        if (!_pools.empty()) {
-            auto pool = _pools.top();
+    void recycle()
+    {
+        if (!pools_.empty())
+        {
+            auto pool = pools_.top();
             pool->purge();
         }
     }

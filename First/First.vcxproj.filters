@@ -50,6 +50,9 @@
     <ClCompile Include="scenes\TextureRectangle1.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
+    <ClCompile Include="scenes\MultiTexture.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\CELLMath.hpp">
@@ -154,6 +157,9 @@
     <ClInclude Include="include\freeImage\FreeImage.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="scenes\MultiTexture.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -165,9 +171,6 @@
     <Filter Include="scenes">
       <UniqueIdentifier>{f1c888b3-8b85-4160-bc84-c146ad04c7ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="shaders_src">
-      <UniqueIdentifier>{75ef41fa-eca0-486d-8880-0119bb8544d8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="basic">
       <UniqueIdentifier>{7c6d969c-563f-4f55-a6ad-4ffbf6589a41}</UniqueIdentifier>
     </Filter>
@@ -177,19 +180,5 @@
     <Filter Include="util">
       <UniqueIdentifier>{a7310442-5f1d-44e8-8d4c-96d644c1c608}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="shaders_src\color_rectange_vs.glsl">
-      <Filter>shaders_src</Filter>
-    </None>
-    <None Include="shaders_src\color_rectangle_fs.glsl">
-      <Filter>shaders_src</Filter>
-    </None>
-    <None Include="shaders_src\simple_rectange_vs.glsl">
-      <Filter>shaders_src</Filter>
-    </None>
-    <None Include="shaders_src\simple_rectangle_fs.glsl">
-      <Filter>shaders_src</Filter>
-    </None>
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ del /s /q /f "$(OutDir)\d3dcompiler_47.dll"
 del /s /q /f "$(OutDir)\libEGL.dll"
 del /s /q /f "$(OutDir)\libGLESv2.dll"
 
-
 @rem post-build
 xcopy "$(ProjectDir)prebuilt\*.dll" "$(OutDir)" /D /E /I /F /Y
-xcopy "$(ProjectDir)shaders\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
+xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
+xcopy "$(ProjectDir)resources\*.*" "$(OutDir)\resources\" /D /E /I /F /Y

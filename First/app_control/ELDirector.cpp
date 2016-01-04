@@ -34,7 +34,7 @@ void Director::mainLoop()
 
 void Director::end()
 {
-    delete _instance;
+    delete instance_;
 }
 
 Director::~Director()

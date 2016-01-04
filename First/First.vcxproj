@@ -14,7 +14,7 @@
     <ProjectGuid>{09BCE858-F5D8-4170-A8B6-6DE8C032144A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>First</RootNamespace>
-    <ProjectName>SimpleRectangle</ProjectName>
+    <ProjectName>OpenGL_ES_2.0</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -63,18 +63,15 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(ProjectDir)prebuilt\libEGL.lib;$(ProjectDir)prebuilt\libGLESv2.lib;$(ProjectDir)prebuilt\x86\FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(ProjectDir)resources/$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PreBuildEvent>
-      <Command>rd /s /q "$(OutDir)\shaders"
-del /s /q /f "$(OutDir)\d3dcompiler_47.dll"
-del /s /q /f "$(OutDir)\libEGL.dll"
-del /s /q /f "$(OutDir)\libGLESv2.dll"
+      <Command>
 </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)prebuilt\*.dll" "$(OutDir)" /D /E /I /F /Y
-xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -107,6 +104,7 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClCompile Include="scenes\ColorRectangle.cpp" />
     <ClCompile Include="scenes\ELDrawable.cpp" />
     <ClCompile Include="scenes\ELShaderProgram.cpp" />
+    <ClCompile Include="scenes\MultiTexture.cpp" />
     <ClCompile Include="scenes\RotateRectangle.cpp" />
     <ClCompile Include="scenes\SimpleRectangle.cpp" />
     <ClCompile Include="scenes\TextureRectangle1.cpp" />
@@ -143,17 +141,12 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="scenes\ColorRectangle.h" />
     <ClInclude Include="scenes\ELDrawable.h" />
     <ClInclude Include="scenes\ELShaderProgram.h" />
+    <ClInclude Include="scenes\MultiTexture.h" />
     <ClInclude Include="scenes\RotateRectangle.h" />
     <ClInclude Include="scenes\SimpleRectangle.h" />
     <ClInclude Include="scenes\TextureRectangle1.h" />
     <ClInclude Include="util\ELShaderHelper.h" />
     <ClInclude Include="util\ELTextReader.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="shaders_src\color_rectange_vs.glsl" />
-    <None Include="shaders_src\color_rectangle_fs.glsl" />
-    <None Include="shaders_src\simple_rectange_vs.glsl" />
-    <None Include="shaders_src\simple_rectangle_fs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

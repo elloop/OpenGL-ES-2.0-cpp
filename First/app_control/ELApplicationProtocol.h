@@ -4,7 +4,8 @@
 
 NS_BEGIN(elloop);
 
-class ApplicationProtocol {
+class ApplicationProtocol
+{
 public:
     virtual bool applicationDidFinishLaunching() = 0;
 };

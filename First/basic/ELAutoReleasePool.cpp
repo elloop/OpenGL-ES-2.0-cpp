@@ -3,11 +3,14 @@
 
 NS_BEGIN(elloop);
 
-PoolManager* PoolManager::_instance = nullptr;
+PoolManager* PoolManager::instance_ = nullptr;
 
-void AutoReleasePool::purge() {
-    std::for_each(_objs.begin(), _objs.end(), [](Ref* obj) {
-        if (obj) {
+void AutoReleasePool::purge()
+{
+    std::for_each(_objs.begin(), _objs.end(), [](Ref* obj)
+    {
+        if (obj)
+        {
             obj->release();
         }
     });

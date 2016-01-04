@@ -6,12 +6,12 @@ NS_BEGIN(elloop);
 struct Size
 {
     Size(float width = 0, float height = 0) :
-    _width(width),
-    _height(height)
+    width_(width),
+    height_(height)
     {}
 
-    float           _width;
-    float           _height;
+    float           width_;
+    float           height_;
 };
 
 NS_END(elloop);

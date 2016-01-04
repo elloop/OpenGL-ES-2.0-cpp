@@ -5,14 +5,15 @@
 #include "app_control/ELOpenGLView.h"
 NS_BEGIN(elloop);
 
-Application* Application::_instance = nullptr;
+Application* Application::instance_ = nullptr;
 
-bool Application::init() 
+bool Application::init()
 {
     auto director = Director::getInstance();
     auto glView = director->getGLView();
-    if (!glView) {
-        auto view = OpenGLView::create(_hInstance, _T("OpenGL ES 2.0"));
+    if (!glView)
+    {
+        auto view = OpenGLView::create(hInstance_, _T("OpenGL ES 2.0"));
         assert(view);
         view->setWindowEventListener(this);
         director->setGLView(view);
@@ -20,15 +21,17 @@ bool Application::init()
     return true;
 }
 
-int Application::run() 
+int Application::run()
 {
 
-    if (!applicationDidFinishLaunching()) {
+    if (!applicationDidFinishLaunching())
+    {
         return -1;
     }
 
     auto director = Director::getInstance();
-    if (!director->getGLView()) {
+    if (!director->getGLView())
+    {
         return -1;
     }
 
@@ -36,16 +39,19 @@ int Application::run()
 
     MSG msg = { 0 };
 
-    while ( msg.message != WM_QUIT ) {
-        if ( WM_CLOSE == msg.message || WM_DESTROY == msg.message ) {
+    while (msg.message != WM_QUIT)
+    {
+        if (WM_CLOSE == msg.message || WM_DESTROY == msg.message)
+        {
             break;
         }
-        if ( PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) ) {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-        else {
-
+        else
+        {
             // clean autorelease objects.
             PoolManager::getInstance()->recycle();
 
@@ -59,32 +65,35 @@ int Application::run()
     return 0;
 }
 
-Application::Application():
-    _hInstance(nullptr)
+Application::Application() :
+hInstance_(nullptr)
 {
-    _hInstance = GetModuleHandle(nullptr);
+    hInstance_ = GetModuleHandle(nullptr);
     init();
-    _instance = this;
+    instance_ = this;
 }
 
-LRESULT Application::onEvent(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-    switch ( msg ) {
-    case WM_CREATE:
-        MessageBox(nullptr, _T("hello"), _T("title"), 0);
-        break;
-    case WM_CLOSE:
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, msg, wParam, lParam);
-        break;
+LRESULT Application::onEvent(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+    switch (msg)
+    {
+        case WM_CREATE:
+            MessageBox(nullptr, _T("hello"), _T("title"), 0);
+            break;
+        case WM_CLOSE:
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        default:
+            return DefWindowProc(hWnd, msg, wParam, lParam);
+            break;
     }
     return S_OK;
 }
 
-Application* Application::getInstance() {
-    return _instance;
+Application* Application::getInstance()
+{
+    return instance_;
 }
 
 NS_END(elloop);

@@ -20,8 +20,8 @@ void ColorRectangle::render()
 
     auto director = Director::getInstance();
     Size s = director->getFrameSize();
-    float width = s._width;
-    float height = s._height;
+    float width = s.width_;
+    float height = s.height_;
 
     glViewport(0, 0, width, height);
 
@@ -68,9 +68,9 @@ bool ColorRectangle::init()
     valid_ = ShaderProgram::initWithFile(vsFileName_, fsFileName_);
     if ( valid_ )
     {
-        position_ = glGetAttribLocation(programId_, "_position");
-        color_ = glGetAttribLocation(programId_, "_color");
-        mvp_ = glGetUniformLocation(programId_, "_mvp");
+        position_   = glGetAttribLocation(programId_, "_position");
+        color_      = glGetAttribLocation(programId_, "_color");
+        mvp_        = glGetUniformLocation(programId_, "_mvp");
     }
     return valid_;
 }

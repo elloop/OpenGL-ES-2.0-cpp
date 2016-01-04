@@ -36,15 +36,19 @@ ShaderId ShaderHelper::compileShader(const std::string &shaderSrc,
     // compile.
     glCompileShader(shaderId);
 
+#ifdef _DEBUG
     // check the compile result.
     GLint compileStatus(0);
     glGetShaderiv(shaderId, GL_COMPILE_STATUS, &compileStatus);
     if (GL_FALSE == compileStatus)
     {
+        GLchar msg[500];
+        glGetShaderInfoLog(shaderId, sizeof(msg), 0, msg);
         glDeleteShader(shaderId);
         shaderId = 0;
+        assert(msg && false);
     }
-    assert(compileStatus == GL_TRUE);
+#endif
 
     return shaderId;
 }
@@ -66,13 +70,19 @@ ProgramId ShaderHelper::linkProgram(ShaderId vertexShaderId,
     glAttachShader(programId, vertexShaderId);
     glAttachShader(programId, fragShaderId);
     glLinkProgram(programId);
+#ifdef _DEBUG
     GLint linkStatus(0);
     glGetProgramiv(programId, GL_LINK_STATUS, &linkStatus);
     if (GL_FALSE == linkStatus)
     {
+        GLchar msg[200];
+        glGetShaderInfoLog(programId, sizeof(msg), 0, msg);
         glDeleteProgram(programId);
         programId = 0;
+        assert(msg && false);
     }
+#endif
+
     assert(linkStatus == GL_TRUE);
     return programId;
 }

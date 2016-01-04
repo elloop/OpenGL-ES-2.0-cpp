@@ -3,27 +3,25 @@
 
 NS_BEGIN(elloop);
 
-OpenGLView::OpenGLView() :
-height_(600),
-width_(400),
-hwnd_(nullptr),
-hInstance_(nullptr),
-config_(nullptr),
-surface_(nullptr),
-context_(nullptr),
-display_(nullptr),
-windowListener_(nullptr)
-{
-
-}
+OpenGLView::OpenGLView()
+    : width_(800)
+    , height_(600)
+    , hwnd_(nullptr)
+    , hInstance_(nullptr)
+    , config_(nullptr)
+    , surface_(nullptr)
+    , context_(nullptr)
+    , display_(nullptr)
+    , windowListener_(nullptr)
+{}
 
 bool OpenGLView::initWithInstance(HINSTANCE instance, LPCTSTR winName)
 {
     WNDCLASSEX wndClass;
-    memset(&wndClass, 0, sizeof( wndClass ));
-    wndClass.cbSize = sizeof( wndClass );
+    memset(&wndClass, 0, sizeof(wndClass));
+    wndClass.cbSize = sizeof(wndClass);
     wndClass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
-    wndClass.hbrBackground = (HBRUSH) GetStockObject(BLACK_BRUSH);
+    wndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
     wndClass.hCursor = LoadCursor(hInstance_, IDC_ARROW);
     wndClass.lpszClassName = winName;
     wndClass.lpfnWndProc = wndProc;
@@ -32,14 +30,14 @@ bool OpenGLView::initWithInstance(HINSTANCE instance, LPCTSTR winName)
     RegisterClassEx(&wndClass);
 
     hwnd_ = CreateWindow(winName, winName, WS_OVERLAPPEDWINDOW, 0, 0,
-                         width_, height_, 0, 0, hInstance_, this);
+        width_, height_, 0, 0, hInstance_, this);
 
-    if ( !initOpenGLES() )
+    if (!initOpenGLES())
     {
         return false;
     }
 
-    return ( hwnd_ != 0 );
+    return (hwnd_ != 0);
 }
 
 bool OpenGLView::show()
@@ -58,8 +56,8 @@ bool OpenGLView::show()
 
 OpenGLView* OpenGLView::create(HINSTANCE instance, LPCTSTR winName)
 {
-    auto ret = new ( std::nothrow ) OpenGLView();
-    if ( ret && ret->initWithInstance(instance, winName) )
+    auto ret = new (std::nothrow) OpenGLView();
+    if (ret && ret->initWithInstance(instance, winName))
     {
         ret->autorelease();
         return ret;
@@ -67,20 +65,20 @@ OpenGLView* OpenGLView::create(HINSTANCE instance, LPCTSTR winName)
     return nullptr;
 }
 
-LRESULT CALLBACK OpenGLView::wndProc(HWND hWnd, 
+LRESULT CALLBACK OpenGLView::wndProc(HWND hWnd,
     UINT msg, WPARAM wParam, LPARAM lParam)
 {
-    auto glView = (OpenGLView*) GetWindowLong(hWnd, GWL_USERDATA);
-    if ( glView && glView->getWindowEventListener() )
+    auto glView = (OpenGLView*)GetWindowLong(hWnd, GWL_USERDATA);
+    if (glView && glView->getWindowEventListener())
     {
-        return ( glView->getWindowEventListener()->onEvent(
-            hWnd, msg, wParam, lParam) );
+        return (glView->getWindowEventListener()->onEvent(
+            hWnd, msg, wParam, lParam));
     }
 
-    if ( WM_CREATE == msg )
+    if (WM_CREATE == msg)
     {
-        CREATESTRUCT* pCreate = (CREATESTRUCT*) lParam;
-        SetWindowLong(hWnd, GWL_USERDATA, (DWORD_PTR) pCreate->lpCreateParams);
+        CREATESTRUCT* pCreate = (CREATESTRUCT*)lParam;
+        SetWindowLong(hWnd, GWL_USERDATA, (DWORD_PTR)pCreate->lpCreateParams);
     }
     return DefWindowProc(hWnd, msg, wParam, lParam);
 }
@@ -115,7 +113,7 @@ bool OpenGLView::initOpenGLES()
     EGLint attr[] = { EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE, EGL_NONE };
     context_ = eglCreateContext(display_, config_, 0, attr);
 
-    if ( eglMakeCurrent(display_, surface_, surface_, context_) == EGL_FALSE )
+    if (eglMakeCurrent(display_, surface_, surface_, context_) == EGL_FALSE)
     {
         return false;
     }
@@ -127,14 +125,14 @@ bool OpenGLView::initOpenGLES()
 
 void OpenGLView::destroyOpenGLES()
 {
-    if ( display_ != EGL_NO_DISPLAY )
+    if (display_ != EGL_NO_DISPLAY)
     {
         eglMakeCurrent(display_, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
-        if ( context_ != EGL_NO_CONTEXT )
+        if (context_ != EGL_NO_CONTEXT)
         {
             eglDestroyContext(display_, context_);
         }
-        if ( surface_ != EGL_NO_SURFACE )
+        if (surface_ != EGL_NO_SURFACE)
         {
             eglDestroySurface(display_, surface_);
         }
