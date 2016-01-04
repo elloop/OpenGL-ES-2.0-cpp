@@ -18,7 +18,7 @@ public:
     uniform                     mvp_;
     uniform                     textureBg_;
     uniform                     textureCloud_;
-    uniform                     uvAnim_;
+    uniform                     deltaUv_;
     attribute                   position_;
     attribute                   uv_;
 
@@ -39,7 +39,7 @@ protected:
         , textureCloudId_(-1)
         , position_(-1)
         , uv_(-1)
-        , uvAnim_(-1)
+        , deltaUv_(-1)
     {
         vsFileName_ = "shaders/multi_texture_vs.glsl";
         fsFileName_ = "shaders/multi_texture_fs.glsl";

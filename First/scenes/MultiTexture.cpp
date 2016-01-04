@@ -27,18 +27,15 @@ bool MultiTexture::init()
     {
         position_       = glGetAttribLocation(programId_, "position_");
         uv_             = glGetAttribLocation(programId_, "uv_");
-        uvAnim_         = glGetUniformLocation(programId_, "uvAnim_");
+        deltaUv_        = glGetUniformLocation(programId_, "deltaUv_");
         textureBg_      = glGetUniformLocation(programId_, "textureBg_");
         textureCloud_   = glGetUniformLocation(programId_, "textureCloud_");
         mvp_            = glGetUniformLocation(programId_, "mvp_");
     }
 
-    //textureBgId_    = loadTexture("images/main.jpg");
-    //textureCloudId_ = loadTexture("images/fog.bmp");
-
-    textureBgId_ = loadTexture("images/bow.jpg");
-    //textureCloudId_ = loadTexture("images/cloud.png");
+    textureBgId_ = loadTexture("images/dog.png");
     textureCloudId_ = loadTexture("images/fog.bmp");
+
     return valid_;
 }
 
@@ -104,8 +101,8 @@ void MultiTexture::render()
     matrix4 screenProj = ortho<float>(0, width, height, 0, -100.0f, 100);
     GLfloat x = 100;
     GLfloat y = 100;
-    GLfloat w = 400;
-    GLfloat h = 400;
+    GLfloat w = 300;
+    GLfloat h = 300;
 
     Vertex ary[] =
     {
@@ -129,7 +126,7 @@ void MultiTexture::render()
     glUniform1i(textureBg_, 0);
     glUniform1i(textureCloud_, 1);
 
-    glUniform1f(uvAnim_, incUv);
+    glUniform1f(deltaUv_, incUv);
     
     glVertexAttribPointer(position_, 2, GL_FLOAT, false, sizeof(Vertex), ary);
     glVertexAttribPointer(uv_, 2, GL_FLOAT, false, sizeof(Vertex), &(ary[0].uv));
