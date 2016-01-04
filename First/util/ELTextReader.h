@@ -4,7 +4,8 @@
 
 NS_BEGIN(elloop);
 
-class TextReader {
+class TextReader
+{
 public:
     static const std::string readFromFile(const std::string& fileName);
 };

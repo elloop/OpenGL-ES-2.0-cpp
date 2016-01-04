@@ -10,13 +10,14 @@ NS_BEGIN(elloop);
 class OpenGLView;
 class Drawable;
 
-class Director : public Singleton<Director> {
+class Director : public Singleton<Director>
+{
 public:
     void            setGLView(OpenGLView* glView);
-    OpenGLView*     getGLView() const { return glView_;}
+    OpenGLView*     getGLView() const { return glView_; }
     void            mainLoop();
     void            end();
-    
+
     void            drawScenes();
     void            pushScene(Drawable* drawable);
     void            runWithScene(Drawable* drawable);

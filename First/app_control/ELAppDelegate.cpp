@@ -11,7 +11,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     auto director = Director::getInstance();
     assert(director);
+
     srand(time(0));
+
     // simple rectangle. pure color.
     /*auto simpleRectangle = SimpleRectangle::create();
     director->pushScene(simpleRectangle);*/
@@ -29,8 +31,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     director->pushScene(rotateRectangle);*/
 
     // texture rectangle 1.
-    auto texture1 = TextureRectangle1::create();
-    director->pushScene(texture1);
+    /*auto texture1 = TextureRectangle1::create();
+    director->pushScene(texture1);*/
+
+    // multi texture.
+    auto multiTexture = MultiTexture::create();
+    director->pushScene(multiTexture);
 
     return true;
 }

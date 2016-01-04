@@ -3,18 +3,21 @@
 
 NS_BEGIN(elloop);
 
-const std::string TextReader::readFromFile(const std::string& fileName) {
+const std::string TextReader::readFromFile(const std::string& fileName)
+{
     assert(!fileName.empty());
     std::ifstream fileStream;
     fileStream.open(fileName, std::ios::in);
     std::string result;
-    std::string line;
-    if (fileStream.is_open()) {
-        while (getline(fileStream, line)) {
+    if (fileStream.is_open())
+    {
+        std::string line;
+        while (getline(fileStream, line))
+        {
             result.append(line + "\n");
         }
+        fileStream.close();
     }
-    fileStream.close();
     return result;
 }
 

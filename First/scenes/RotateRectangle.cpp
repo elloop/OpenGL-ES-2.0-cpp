@@ -20,8 +20,8 @@ void RotateRectangle::render()
 
     auto director = Director::getInstance();
     Size s = director->getFrameSize();
-    float width = s._width;
-    float height = s._height;
+    float width = s.width_;
+    float height = s.height_;
 
     glViewport(0, 0, width, height);
 

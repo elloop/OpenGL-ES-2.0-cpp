@@ -4,25 +4,28 @@
 NS_BEGIN(elloop);
 
 template <typename T>
-class Singleton {
+class Singleton
+{
 public:
     static T* getInstance();
 protected:
     Singleton() {}
     virtual ~Singleton() {}
 protected:
-    static T* _instance;
+    static T* instance_;
 };
 
 template <typename T>
-T* Singleton<T>::_instance = nullptr;
+T* Singleton<T>::instance_ = nullptr;
 
 template <typename T>
-T* Singleton<T>::getInstance() {
-    if (!_instance) {
-        _instance = new T;
+T* Singleton<T>::getInstance()
+{
+    if (!instance_)
+    {
+        instance_ = new T;
     }
-    return _instance;
+    return instance_;
 }
 
 NS_END(elloop);

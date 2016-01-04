@@ -5,9 +5,10 @@
 
 NS_BEGIN(elloop);
 
-class Drawable : public Ref {
+class Drawable : public Ref
+{
 public:
-    virtual void        render() {}
+    virtual void render() {}
 };
 
 NS_END(elloop);

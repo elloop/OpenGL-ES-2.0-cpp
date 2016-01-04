@@ -18,7 +18,7 @@ bool ShaderProgram::initWithFile(const std::string & vsFileName,
         BREAK_IF(error);
 
         vertexShaderId_ = ShaderHelper::compileVertexShader(vertexShaderSrc_);
-        error = vertexShaderId_ == 0;
+        error = (vertexShaderId_ == 0);
         BREAK_IF(error);
 
         fragShaderSrc_ = TextReader::readFromFile(fsFileName);
@@ -26,11 +26,11 @@ bool ShaderProgram::initWithFile(const std::string & vsFileName,
         BREAK_IF(error);
 
         fragShaderId_ = ShaderHelper::compileFragmentShader(fragShaderSrc_);
-        error = fragShaderId_ == 0;
+        error = (fragShaderId_ == 0);
         BREAK_IF(error);
 
         programId_ = ShaderHelper::linkProgram(vertexShaderId_, fragShaderId_);
-        error = programId_ == 0;
+        error = (programId_ == 0);
         BREAK_IF(error);
 
     }

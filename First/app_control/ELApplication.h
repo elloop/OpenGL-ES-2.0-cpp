@@ -20,8 +20,8 @@ public:
                                 WPARAM wParam, LPARAM lParam) override;
 protected:
     Application();
-    static Application* _instance;
-    HINSTANCE _hInstance;
+    static Application* instance_;
+    HINSTANCE           hInstance_;
 };
 
 NS_END(elloop);
