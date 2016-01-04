@@ -62,7 +62,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(ProjectDir)prebuilt\libEGL.lib;$(ProjectDir)prebuilt\libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)prebuilt\libEGL.lib;$(ProjectDir)prebuilt\libGLESv2.lib;$(ProjectDir)prebuilt\x86\FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>rd /s /q "$(OutDir)\shaders"
@@ -130,6 +130,7 @@ xcopy "$(ProjectDir)shaders_src\*.*" "$(OutDir)\shaders\" /D /E /I /F /Y
     <ClInclude Include="include\elloop\print_util.h" />
     <ClInclude Include="include\elloop\Singleton.h" />
     <ClInclude Include="include\elloop\stl_header.h" />
+    <ClInclude Include="include\freeImage\FreeImage.h" />
     <ClInclude Include="include\GLES2\gl2.h" />
     <ClInclude Include="include\GLES2\gl2ext.h" />
     <ClInclude Include="include\GLES2\gl2platform.h" />

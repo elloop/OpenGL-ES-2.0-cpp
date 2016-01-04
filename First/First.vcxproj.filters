@@ -151,6 +151,9 @@
     <ClInclude Include="scenes\TextureRectangle1.h">
       <Filter>scenes</Filter>
     </ClInclude>
+    <ClInclude Include="include\freeImage\FreeImage.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
