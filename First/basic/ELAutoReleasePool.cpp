@@ -3,7 +3,7 @@
 
 NS_BEGIN(elloop);
 
-PoolManager* PoolManager::instance_ = nullptr;
+PoolManager* PoolManager::_instance = nullptr;
 
 void AutoReleasePool::purge()
 {

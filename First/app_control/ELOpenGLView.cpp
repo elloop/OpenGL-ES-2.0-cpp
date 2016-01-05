@@ -4,15 +4,15 @@
 NS_BEGIN(elloop);
 
 OpenGLView::OpenGLView()
-    : width_(800)
-    , height_(600)
-    , hwnd_(nullptr)
-    , hInstance_(nullptr)
-    , config_(nullptr)
-    , surface_(nullptr)
-    , context_(nullptr)
-    , display_(nullptr)
-    , windowListener_(nullptr)
+    : _width(800)
+    , _height(600)
+    , _hwnd(nullptr)
+    , _hInstance(nullptr)
+    , _config(nullptr)
+    , _surface(nullptr)
+    , _context(nullptr)
+    , _display(nullptr)
+    , _windowListener(nullptr)
 {}
 
 bool OpenGLView::initWithInstance(HINSTANCE instance, LPCTSTR winName)
@@ -22,30 +22,30 @@ bool OpenGLView::initWithInstance(HINSTANCE instance, LPCTSTR winName)
     wndClass.cbSize = sizeof(wndClass);
     wndClass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
     wndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
-    wndClass.hCursor = LoadCursor(hInstance_, IDC_ARROW);
+    wndClass.hCursor = LoadCursor(_hInstance, IDC_ARROW);
     wndClass.lpszClassName = winName;
     wndClass.lpfnWndProc = wndProc;
     wndClass.hIcon = 0;
     wndClass.lpszMenuName = 0;
     RegisterClassEx(&wndClass);
 
-    hwnd_ = CreateWindow(winName, winName, WS_OVERLAPPEDWINDOW, 0, 0,
-        width_, height_, 0, 0, hInstance_, this);
+    _hwnd = CreateWindow(winName, winName, WS_OVERLAPPEDWINDOW, 0, 0,
+        _width, _height, 0, 0, _hInstance, this);
 
     if (!initOpenGLES())
     {
         return false;
     }
 
-    return (hwnd_ != 0);
+    return (_hwnd != 0);
 }
 
 bool OpenGLView::show()
 {
 
-    UpdateWindow(hwnd_);
+    UpdateWindow(_hwnd);
 
-    ShowWindow(hwnd_, SW_NORMAL);
+    ShowWindow(_hwnd, SW_NORMAL);
 
     /* if ( !initOpenGLES() ) {
          return false;
@@ -100,52 +100,52 @@ bool OpenGLView::initOpenGLES()
     EGLint major;
     EGLint minor;
 
-    display_ = eglGetDisplay(EGL_DEFAULT_DISPLAY);
+    _display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
 
-    eglInitialize(display_, &major, &minor);
+    eglInitialize(_display, &major, &minor);
 
-    eglChooseConfig(display_, attirbs, &config_, 1, &numConfigs);
+    eglChooseConfig(_display, attirbs, &_config, 1, &numConfigs);
 
-    eglGetConfigAttrib(display_, config_, EGL_NATIVE_VISUAL_ID, &format);
+    eglGetConfigAttrib(_display, _config, EGL_NATIVE_VISUAL_ID, &format);
 
-    surface_ = eglCreateWindowSurface(display_, config_, hwnd_, nullptr);
+    _surface = eglCreateWindowSurface(_display, _config, _hwnd, nullptr);
 
     EGLint attr[] = { EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE, EGL_NONE };
-    context_ = eglCreateContext(display_, config_, 0, attr);
+    _context = eglCreateContext(_display, _config, 0, attr);
 
-    if (eglMakeCurrent(display_, surface_, surface_, context_) == EGL_FALSE)
+    if (eglMakeCurrent(_display, _surface, _surface, _context) == EGL_FALSE)
     {
         return false;
     }
 
-    eglQuerySurface(display_, surface_, EGL_WIDTH, &width_);
-    eglQuerySurface(display_, surface_, EGL_HEIGHT, &height_);
+    eglQuerySurface(_display, _surface, EGL_WIDTH, &_width);
+    eglQuerySurface(_display, _surface, EGL_HEIGHT, &_height);
     return true;
 }
 
 void OpenGLView::destroyOpenGLES()
 {
-    if (display_ != EGL_NO_DISPLAY)
+    if (_display != EGL_NO_DISPLAY)
     {
-        eglMakeCurrent(display_, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
-        if (context_ != EGL_NO_CONTEXT)
+        eglMakeCurrent(_display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+        if (_context != EGL_NO_CONTEXT)
         {
-            eglDestroyContext(display_, context_);
+            eglDestroyContext(_display, _context);
         }
-        if (surface_ != EGL_NO_SURFACE)
+        if (_surface != EGL_NO_SURFACE)
         {
-            eglDestroySurface(display_, surface_);
+            eglDestroySurface(_display, _surface);
         }
-        eglTerminate(display_);
+        eglTerminate(_display);
     }
-    display_ = EGL_NO_DISPLAY;
-    context_ = EGL_NO_CONTEXT;
-    surface_ = EGL_NO_SURFACE;
+    _display = EGL_NO_DISPLAY;
+    _context = EGL_NO_CONTEXT;
+    _surface = EGL_NO_SURFACE;
 }
 
 void OpenGLView::swapBuffer()
 {
-    eglSwapBuffers(display_, surface_);
+    eglSwapBuffers(_display, _surface);
 }
 
 OpenGLView::~OpenGLView()

@@ -1,16 +1,16 @@
 precision lowp float;
 
-varying     vec2        outUv_;
-uniform     sampler2D   textureBg_;
-uniform     sampler2D   textureCloud_;
-uniform     float       deltaUv_;
+varying     vec2        _outUv;
+uniform     sampler2D   _textureBg;
+uniform     sampler2D   _textureCloud;
+uniform     float       _deltaUv;
 
 
 void main() 
 {
-    vec4    bgColor    = texture2D(textureBg_, outUv_);
-    vec2    moveUv     = vec2(outUv_.x + deltaUv_, outUv_.y);
-    vec4    cloudColor = texture2D(textureCloud_, moveUv);
+    vec4    bgColor    = texture2D(_textureBg, _outUv);
+    vec2    moveUv     = vec2(_outUv.x + _deltaUv, _outUv.y);
+    vec4    cloudColor = texture2D(_textureCloud, moveUv);
     gl_FragColor    = bgColor + cloudColor;
     /* gl_FragColor       = mix(bgColor, cloudColor, 0.5); */
 }

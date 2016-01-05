@@ -67,7 +67,7 @@
     </Link>
     <PreBuildEvent>
       <Command>
-</Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
@@ -100,14 +100,18 @@
     <ClCompile Include="basic\ELAutoReleasePool.cpp" />
     <ClCompile Include="include\gl_include.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="scenes\Basic3DProjection.cpp" />
     <ClCompile Include="scenes\Circle.cpp" />
     <ClCompile Include="scenes\ColorRectangle.cpp" />
+    <ClCompile Include="scenes\ComprehensiveTest.cpp" />
     <ClCompile Include="scenes\ELDrawable.cpp" />
     <ClCompile Include="scenes\ELShaderProgram.cpp" />
+    <ClCompile Include="scenes\MipMapTexture.cpp" />
     <ClCompile Include="scenes\MultiTexture.cpp" />
     <ClCompile Include="scenes\RotateRectangle.cpp" />
     <ClCompile Include="scenes\SimpleRectangle.cpp" />
-    <ClCompile Include="scenes\TextureRectangle1.cpp" />
+    <ClCompile Include="scenes\SimpleTexutre.cpp" />
+    <ClCompile Include="scenes\TextureOperations.cpp" />
     <ClCompile Include="util\ELShaderHelper.cpp" />
     <ClCompile Include="util\ELTextReader.cpp" />
   </ItemGroup>
@@ -137,14 +141,18 @@
     <ClInclude Include="include_scenes.h" />
     <ClInclude Include="math\CELLMath.hpp" />
     <ClInclude Include="math\ELGeometry.h" />
+    <ClInclude Include="scenes\Basic3DProjection.h" />
     <ClInclude Include="scenes\Circle.h" />
     <ClInclude Include="scenes\ColorRectangle.h" />
+    <ClInclude Include="scenes\ComprehensiveTest.h" />
     <ClInclude Include="scenes\ELDrawable.h" />
     <ClInclude Include="scenes\ELShaderProgram.h" />
+    <ClInclude Include="scenes\MipMapTexture.h" />
     <ClInclude Include="scenes\MultiTexture.h" />
     <ClInclude Include="scenes\RotateRectangle.h" />
     <ClInclude Include="scenes\SimpleRectangle.h" />
-    <ClInclude Include="scenes\TextureRectangle1.h" />
+    <ClInclude Include="scenes\SimpleTexutre.h" />
+    <ClInclude Include="scenes\TextureOperations.h" />
     <ClInclude Include="util\ELShaderHelper.h" />
     <ClInclude Include="util\ELTextReader.h" />
   </ItemGroup>

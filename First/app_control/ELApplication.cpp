@@ -5,7 +5,7 @@
 #include "app_control/ELOpenGLView.h"
 NS_BEGIN(elloop);
 
-Application* Application::instance_ = nullptr;
+Application* Application::_instance = nullptr;
 
 bool Application::init()
 {
@@ -13,7 +13,7 @@ bool Application::init()
     auto glView = director->getGLView();
     if (!glView)
     {
-        auto view = OpenGLView::create(hInstance_, _T("OpenGL ES 2.0"));
+        auto view = OpenGLView::create(_hInstance, _T("OpenGL ES 2.0"));
         assert(view);
         view->setWindowEventListener(this);
         director->setGLView(view);
@@ -66,11 +66,11 @@ int Application::run()
 }
 
 Application::Application() :
-hInstance_(nullptr)
+_hInstance(nullptr)
 {
-    hInstance_ = GetModuleHandle(nullptr);
+    _hInstance = GetModuleHandle(nullptr);
     init();
-    instance_ = this;
+    _instance = this;
 }
 
 LRESULT Application::onEvent(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -93,7 +93,7 @@ LRESULT Application::onEvent(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 Application* Application::getInstance()
 {
-    return instance_;
+    return _instance;
 }
 
 NS_END(elloop);

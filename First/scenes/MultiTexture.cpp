@@ -8,35 +8,35 @@ NS_BEGIN(elloop);
 
 void MultiTexture::begin()
 {
-    glUseProgram(programId_);
-    glEnableVertexAttribArray(position_);
-    glEnableVertexAttribArray(uv_);
+    glUseProgram(_programId);
+    glEnableVertexAttribArray(_position);
+    glEnableVertexAttribArray(_uv);
 }
 
 void MultiTexture::end()
 {
-    glDisableVertexAttribArray(uv_);
-    glDisableVertexAttribArray(position_);
+    glDisableVertexAttribArray(_uv);
+    glDisableVertexAttribArray(_position);
     glUseProgram(0);
 }
 
 bool MultiTexture::init()
 {
-    valid_ = ShaderProgram::initWithFile(vsFileName_, fsFileName_);
-    if ( valid_ )
+    _valid = ShaderProgram::initWithFile(_vsFileName, _fsFileName);
+    if ( _valid )
     {
-        position_       = glGetAttribLocation(programId_, "position_");
-        uv_             = glGetAttribLocation(programId_, "uv_");
-        deltaUv_        = glGetUniformLocation(programId_, "deltaUv_");
-        textureBg_      = glGetUniformLocation(programId_, "textureBg_");
-        textureCloud_   = glGetUniformLocation(programId_, "textureCloud_");
-        mvp_            = glGetUniformLocation(programId_, "mvp_");
+        _position       = glGetAttribLocation(_programId, "_position");
+        _uv             = glGetAttribLocation(_programId, "_uv");
+        _deltaUv        = glGetUniformLocation(_programId, "_deltaUv");
+        _textureBg      = glGetUniformLocation(_programId, "_textureBg");
+        _textureCloud   = glGetUniformLocation(_programId, "_textureCloud");
+        _mvp            = glGetUniformLocation(_programId, "_mvp");
     }
 
-    textureBgId_ = loadTexture("images/dog.png");
-    textureCloudId_ = loadTexture("images/fog.bmp");
+    _textureBgId = loadTexture("images/dog.png");
+    _textureCloudId = loadTexture("images/fog.bmp");
 
-    return valid_;
+    return _valid;
 }
 
 MultiTexture* MultiTexture::create()
@@ -91,8 +91,8 @@ void MultiTexture::render()
 
     auto director = Director::getInstance();
     Size s = director->getFrameSize();
-    float width = s.width_;
-    float height = s.height_;
+    float width = s._width;
+    float height = s._height;
 
     glViewport(0, 0, width, height);
 
@@ -116,20 +116,20 @@ void MultiTexture::render()
     incUv += 0.01;
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureBgId_);
+    glBindTexture(GL_TEXTURE_2D, _textureBgId);
 
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, textureCloudId_);
+    glBindTexture(GL_TEXTURE_2D, _textureCloudId);
 
-    glUniformMatrix4fv(mvp_, 1, false, screenProj.data());
+    glUniformMatrix4fv(_mvp, 1, false, screenProj.data());
 
-    glUniform1i(textureBg_, 0);
-    glUniform1i(textureCloud_, 1);
+    glUniform1i(_textureBg, 0);
+    glUniform1i(_textureCloud, 1);
 
-    glUniform1f(deltaUv_, incUv);
+    glUniform1f(_deltaUv, incUv);
     
-    glVertexAttribPointer(position_, 2, GL_FLOAT, false, sizeof(Vertex), ary);
-    glVertexAttribPointer(uv_, 2, GL_FLOAT, false, sizeof(Vertex), &(ary[0].uv));
+    glVertexAttribPointer(_position, 2, GL_FLOAT, false, sizeof(Vertex), ary);
+    glVertexAttribPointer(_uv, 2, GL_FLOAT, false, sizeof(Vertex), &(ary[0].uv));
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
     end();

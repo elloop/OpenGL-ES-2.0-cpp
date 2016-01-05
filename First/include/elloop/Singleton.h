@@ -12,20 +12,20 @@ protected:
     Singleton() {}
     virtual ~Singleton() {}
 protected:
-    static T* instance_;
+    static T* _instance;
 };
 
 template <typename T>
-T* Singleton<T>::instance_ = nullptr;
+T* Singleton<T>::_instance = nullptr;
 
 template <typename T>
 T* Singleton<T>::getInstance()
 {
-    if (!instance_)
+    if (!_instance)
     {
-        instance_ = new T;
+        _instance = new T;
     }
-    return instance_;
+    return _instance;
 }
 
 NS_END(elloop);

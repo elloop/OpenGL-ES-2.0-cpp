@@ -13,24 +13,24 @@ bool ShaderProgram::initWithFile(const std::string & vsFileName,
     bool error(false);
     do
     {
-        vertexShaderSrc_ = TextReader::readFromFile(vsFileName);
-        error = vertexShaderSrc_.empty();
+        _vertexShaderSrc = TextReader::readFromFile(vsFileName);
+        error = _vertexShaderSrc.empty();
         BREAK_IF(error);
 
-        vertexShaderId_ = ShaderHelper::compileVertexShader(vertexShaderSrc_);
-        error = (vertexShaderId_ == 0);
+        _vertexShaderId = ShaderHelper::compileVertexShader(_vertexShaderSrc);
+        error = (_vertexShaderId == 0);
         BREAK_IF(error);
 
-        fragShaderSrc_ = TextReader::readFromFile(fsFileName);
-        error = fragShaderSrc_.empty();
+        _fragShaderSrc = TextReader::readFromFile(fsFileName);
+        error = _fragShaderSrc.empty();
         BREAK_IF(error);
 
-        fragShaderId_ = ShaderHelper::compileFragmentShader(fragShaderSrc_);
-        error = (fragShaderId_ == 0);
+        _fragShaderId = ShaderHelper::compileFragmentShader(_fragShaderSrc);
+        error = (_fragShaderId == 0);
         BREAK_IF(error);
 
-        programId_ = ShaderHelper::linkProgram(vertexShaderId_, fragShaderId_);
-        error = (programId_ == 0);
+        _programId = ShaderHelper::linkProgram(_vertexShaderId, _fragShaderId);
+        error = (_programId == 0);
         BREAK_IF(error);
 
     }
@@ -41,9 +41,9 @@ bool ShaderProgram::initWithFile(const std::string & vsFileName,
 
 bool ShaderProgram::validateProgram()
 {
-    glValidateProgram(programId_);
+    glValidateProgram(_programId);
     GLint validateStatus(0);
-    glGetProgramiv(programId_, GL_VALIDATE_STATUS, &validateStatus);
+    glGetProgramiv(_programId, GL_VALIDATE_STATUS, &validateStatus);
     return (validateStatus == GL_TRUE);
 }
 

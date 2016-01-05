@@ -9,29 +9,29 @@ class Ref
 public:
     void    release()
     {
-        --rc_;
-        if (0 == rc_)
+        --_rc;
+        if (0 == _rc)
         {
             delete this;
         }
     }
     void    retain()
     {
-        ++rc_;
+        ++_rc;
     }
     size_t  retainCount() const
     {
-        return rc_;
+        return _rc;
     }
     void autorelease()
     {
         PoolManager::getInstance()->autorelease(this);
     }
 protected:
-    Ref() : rc_(1) {}
+    Ref() : _rc(1) {}
     virtual ~Ref() {}
 private:
-    size_t   rc_;
+    size_t   _rc;
 };
 
 NS_END(elloop);

@@ -31,18 +31,18 @@ public:
 
     void setWindowEventListener(WindowEventListener* listener)
     {
-        windowListener_ = listener;
+        _windowListener = listener;
     }
     WindowEventListener* getWindowEventListener() const
     {
-        return windowListener_;
+        return _windowListener;
     }
 
-    float   width() const { return width_; }
-    void    setWidth(float val) { width_ = val; }
-    float   height() const { return height_; }
-    void    setHeight(float val) { height_ = val; }
-    Size    frameSize() const { return Size(width_, height_); }
+    float   width() const { return _width; }
+    void    setWidth(float val) { _width = val; }
+    float   height() const { return _height; }
+    void    setHeight(float val) { _height = val; }
+    Size    frameSize() const { return Size(_width, _height); }
 
 protected:
     OpenGLView();
@@ -51,16 +51,16 @@ protected:
     static LRESULT CALLBACK wndProc(HWND hWnd, UINT msg,
         WPARAM wParam, LPARAM lParam);
 private:
-    WindowCallback          windowCallback_;
-    HWND                    hwnd_;
-    HINSTANCE               hInstance_;
-    int                     width_;
-    int                     height_;
-    EGLConfig               config_;
-    EGLSurface              surface_;
-    EGLContext              context_;
-    EGLDisplay              display_;
-    WindowEventListener*    windowListener_;
+    WindowCallback          _windowCallback;
+    HWND                    _hwnd;
+    HINSTANCE               _hInstance;
+    int                     _width;
+    int                     _height;
+    EGLConfig               _config;
+    EGLSurface              _surface;
+    EGLContext              _context;
+    EGLDisplay              _display;
+    WindowEventListener*    _windowListener;
 };
 
 NS_END(elloop);

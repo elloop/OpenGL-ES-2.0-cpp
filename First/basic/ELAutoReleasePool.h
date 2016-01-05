@@ -40,8 +40,8 @@ class PoolManager
 {
     typedef std::stack<AutoReleasePool*> PoolStack;
 
-    static PoolManager*                 instance_;
-    PoolStack                           pools_;
+    static PoolManager*                 _instance;
+    PoolStack                           _pools;
 
 
     PoolManager() {}
@@ -50,51 +50,51 @@ class PoolManager
 public:
     void purge()
     {
-        while (!pools_.empty())
+        while (!_pools.empty())
         {
-            auto pool = pools_.top();
+            auto pool = _pools.top();
             delete pool;
-            pools_.pop();
+            _pools.pop();
         }
     }
 
     static PoolManager* getInstance()
     {
-        if (!instance_)
+        if (!_instance)
         {
-            instance_ = new PoolManager();
+            _instance = new PoolManager();
         }
-        return instance_;
+        return _instance;
     }
 
     void push()
     {
         auto pool = new AutoReleasePool();
-        pools_.push(pool);
+        _pools.push(pool);
     }
     void pop()
     {
-        if (!pools_.empty())
+        if (!_pools.empty())
         {
-            delete pools_.top();
-            pools_.pop();
+            delete _pools.top();
+            _pools.pop();
         }
     }
     void autorelease(Ref* ref)
     {
-        if (pools_.empty())
+        if (_pools.empty())
         {
             push();
         }
-        auto pool = pools_.top();
+        auto pool = _pools.top();
         pool->push(ref);
     }
 
     void recycle()
     {
-        if (!pools_.empty())
+        if (!_pools.empty())
         {
-            auto pool = pools_.top();
+            auto pool = _pools.top();
             pool->purge();
         }
     }

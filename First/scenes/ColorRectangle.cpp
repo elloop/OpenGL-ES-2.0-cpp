@@ -20,8 +20,8 @@ void ColorRectangle::render()
 
     auto director = Director::getInstance();
     Size s = director->getFrameSize();
-    float width = s.width_;
-    float height = s.height_;
+    float width = s._width;
+    float height = s._height;
 
     glViewport(0, 0, width, height);
 
@@ -41,9 +41,9 @@ void ColorRectangle::render()
         float2{ x + w, y + h }, Rgba4Byte(255, 255, 255, 1),
     };
 
-    glUniformMatrix4fv(mvp_, 1, false, screenProj.data());
-    glVertexAttribPointer(position_, 2, GL_FLOAT, false, sizeof( Vertex ), ary);
-    glVertexAttribPointer(color_, 4, GL_UNSIGNED_BYTE, true, sizeof( Vertex ), &( ary[0].color ));
+    glUniformMatrix4fv(_mvp, 1, false, screenProj.data());
+    glVertexAttribPointer(_position, 2, GL_FLOAT, false, sizeof( Vertex ), ary);
+    glVertexAttribPointer(_color, 4, GL_UNSIGNED_BYTE, true, sizeof( Vertex ), &( ary[0].color ));
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
     end();
@@ -51,28 +51,28 @@ void ColorRectangle::render()
 
 void ColorRectangle::begin()
 {
-    glUseProgram(programId_);
-    glEnableVertexAttribArray(position_);
-    glEnableVertexAttribArray(color_);
+    glUseProgram(_programId);
+    glEnableVertexAttribArray(_position);
+    glEnableVertexAttribArray(_color);
 }
 
 void ColorRectangle::end()
 {
-    glDisableVertexAttribArray(color_);
-    glDisableVertexAttribArray(position_);
+    glDisableVertexAttribArray(_color);
+    glDisableVertexAttribArray(_position);
     glUseProgram(0);
 }
 
 bool ColorRectangle::init()
 {
-    valid_ = ShaderProgram::initWithFile(vsFileName_, fsFileName_);
-    if ( valid_ )
+    _valid = ShaderProgram::initWithFile(_vsFileName, _fsFileName);
+    if ( _valid )
     {
-        position_   = glGetAttribLocation(programId_, "_position");
-        color_      = glGetAttribLocation(programId_, "_color");
-        mvp_        = glGetUniformLocation(programId_, "_mvp");
+        _position   = glGetAttribLocation(_programId, "_position");
+        _color      = glGetAttribLocation(_programId, "_color");
+        _mvp        = glGetUniformLocation(_programId, "_mvp");
     }
-    return valid_;
+    return _valid;
 }
 
 ColorRectangle* ColorRectangle::create()

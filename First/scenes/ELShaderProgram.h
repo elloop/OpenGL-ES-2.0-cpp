@@ -20,18 +20,18 @@ public:
     virtual void    begin() = 0;
     virtual void    end() = 0;
     virtual void    render() override {}
-    bool            valid() const { return valid_; }
+    bool            valid() const { return _valid; }
 
 protected:
     ShaderProgram() 
-        : vertexShaderId_(0)
-        , fragShaderId_(0)
-        , programId_(0)
-        , vertexShaderSrc_("")
-        , fragShaderSrc_("")
-        , vsFileName_("")
-        , fsFileName_("")
-        , valid_(false)
+        : _vertexShaderId(0)
+        , _fragShaderId(0)
+        , _programId(0)
+        , _vertexShaderSrc("")
+        , _fragShaderSrc("")
+        , _vsFileName("")
+        , _fsFileName("")
+        , _valid(false)
     {
     }
     virtual         ~ShaderProgram() {}
@@ -41,14 +41,14 @@ protected:
 
     virtual bool    validateProgram();
 
-    ShaderId        vertexShaderId_;
-    ShaderId        fragShaderId_;
-    ProgramId       programId_;
-    std::string     vertexShaderSrc_;
-    std::string     fragShaderSrc_;
-    std::string     vsFileName_;
-    std::string     fsFileName_;
-    bool            valid_;
+    ShaderId        _vertexShaderId;
+    ShaderId        _fragShaderId;
+    ProgramId       _programId;
+    std::string     _vertexShaderSrc;
+    std::string     _fragShaderSrc;
+    std::string     _vsFileName;
+    std::string     _fsFileName;
+    bool            _valid;
 
 };
 

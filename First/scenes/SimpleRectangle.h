@@ -17,15 +17,15 @@ public:
     void                        end()       override;
     void                        render()    override;
 
-    attribute                   position_;
-    uniform                     mvp_;
-    uniform                     color_;
+    attribute                   _position;
+    uniform                     _mvp;
+    uniform                     _color;
 protected:
     bool                        init();
     SimpleRectangle() 
     {
-        vsFileName_ = "shaders/simple_rectange_vs.glsl";
-        fsFileName_ = "shaders/simple_rectangle_fs.glsl";
+        _vsFileName = "shaders/simple_rectange_vs.glsl";
+        _fsFileName = "shaders/simple_rectangle_fs.glsl";
     }
     ~SimpleRectangle()
     {}

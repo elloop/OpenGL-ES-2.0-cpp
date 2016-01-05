@@ -14,15 +14,15 @@ public:
     void                        end()       override;
     void                        render()    override;
 
-    attribute                   position_;
-    uniform                     mvp_;
-    attribute                   color_;
+    attribute                   _position;
+    uniform                     _mvp;
+    attribute                   _color;
 protected:
     bool                        init();
     ColorRectangle()
     {
-        vsFileName_ = "shaders/color_rectange_vs.glsl";
-        fsFileName_ = "shaders/color_rectangle_fs.glsl";
+        _vsFileName = "shaders/color_rectangle_vs.glsl";
+        _fsFileName = "shaders/color_rectangle_fs.glsl";
     }
     ~ColorRectangle()
     {}

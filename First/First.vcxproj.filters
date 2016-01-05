@@ -47,10 +47,22 @@
     <ClCompile Include="scenes\RotateRectangle.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
-    <ClCompile Include="scenes\TextureRectangle1.cpp">
+    <ClCompile Include="scenes\MultiTexture.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
-    <ClCompile Include="scenes\MultiTexture.cpp">
+    <ClCompile Include="scenes\Basic3DProjection.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\MipMapTexture.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\SimpleTexutre.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\TextureOperations.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\ComprehensiveTest.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -151,13 +163,25 @@
     <ClInclude Include="scenes\RotateRectangle.h">
       <Filter>scenes</Filter>
     </ClInclude>
-    <ClInclude Include="scenes\TextureRectangle1.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
     <ClInclude Include="include\freeImage\FreeImage.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="scenes\MultiTexture.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\Basic3DProjection.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\MipMapTexture.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\SimpleTexutre.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\TextureOperations.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\ComprehensiveTest.h">
       <Filter>scenes</Filter>
     </ClInclude>
   </ItemGroup>

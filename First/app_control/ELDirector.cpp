@@ -6,19 +6,19 @@ NS_BEGIN(elloop);
 
 
 Director::Director()
-: glView_(nullptr)
-, currentScene_(nullptr)
+: _glView(nullptr)
+, _currentScene(nullptr)
 {}
 
 void Director::setGLView(OpenGLView* glView)
 {
     assert(glView);
     glView->retain();
-    if (glView_)
+    if (_glView)
     {
-        glView_->release();
+        _glView->release();
     }
-    glView_ = glView;
+    _glView = glView;
 }
 
 void Director::mainLoop()
@@ -26,40 +26,40 @@ void Director::mainLoop()
 
     drawScenes();
 
-    if (glView_)
+    if (_glView)
     {
-        glView_->swapBuffer();
+        _glView->swapBuffer();
     }
 }
 
 void Director::end()
 {
-    delete instance_;
+    delete _instance;
 }
 
 Director::~Director()
 {
-    if (glView_)
+    if (_glView)
     {
-        glView_->release();
-        glView_ = nullptr;
+        _glView->release();
+        _glView = nullptr;
     }
 
     clearSceneStack();
-    currentScene_ = nullptr;
+    _currentScene = nullptr;
 }
 
 void Director::drawScenes()
 {
-    if (currentScene_)
+    if (_currentScene)
     {
-        currentScene_->render();
+        _currentScene->render();
     }
 }
 
 Size Director::getFrameSize() const
 {
-    return (glView_ == nullptr) ? Size() : glView_->frameSize();
+    return (_glView == nullptr) ? Size() : _glView->frameSize();
 }
 
 void Director::runWithScene(Drawable* drawable)
@@ -74,24 +74,24 @@ void Director::pushScene(Drawable* drawable)
 {
     assert(drawable);
     // judge if drawable is the current top?
-    if (!sceneStack_.empty() && drawable == sceneStack_.top()) 
+    if (!_sceneStack.empty() && drawable == _sceneStack.top()) 
     {
         return;
     }
 
     drawable->retain();
-    sceneStack_.push(drawable);
-    currentScene_ = drawable;
+    _sceneStack.push(drawable);
+    _currentScene = drawable;
 }
 
 void Director::clearSceneStack()
 {
     Drawable* temp(nullptr);
-    while (!sceneStack_.empty())
+    while (!_sceneStack.empty())
     {
-        temp = sceneStack_.top();
+        temp = _sceneStack.top();
         temp->release();
-        sceneStack_.pop();
+        _sceneStack.pop();
     }
 }
 

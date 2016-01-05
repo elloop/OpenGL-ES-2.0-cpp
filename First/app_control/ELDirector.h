@@ -14,7 +14,7 @@ class Director : public Singleton<Director>
 {
 public:
     void            setGLView(OpenGLView* glView);
-    OpenGLView*     getGLView() const { return glView_; }
+    OpenGLView*     getGLView() const { return _glView; }
     void            mainLoop();
     void            end();
 
@@ -29,9 +29,9 @@ protected:
     void            clearSceneStack();
     friend Singleton<Director>;
 private:
-    OpenGLView*             glView_;
-    Drawable*               currentScene_;
-    std::stack<Drawable*>   sceneStack_;
+    OpenGLView*             _glView;
+    Drawable*               _currentScene;
+    std::stack<Drawable*>   _sceneStack;
 };
 
 NS_END(elloop);

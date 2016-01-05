@@ -14,8 +14,8 @@ void SimpleRectangle::render()
 
     auto director = Director::getInstance();
     Size s = director->getFrameSize();
-    float width =  s.width_;
-    float height = s.height_;
+    float width =  s._width;
+    float height = s._height;
 
     glViewport(0, 0, width, height);
 
@@ -32,9 +32,9 @@ void SimpleRectangle::render()
         x, y + h,
         x + w, y + h,
     };
-    glUniformMatrix4fv(mvp_, 1, false, screenProj.data());
-    glUniform4f(color_, 1, 0, 0, 0.5);
-    glVertexAttribPointer(position_, 2, GL_FLOAT, false, 2 * sizeof(GLfloat), ary);
+    glUniformMatrix4fv(_mvp, 1, false, screenProj.data());
+    glUniform4f(_color, 1, 0, 0, 0.5);
+    glVertexAttribPointer(_position, 2, GL_FLOAT, false, 2 * sizeof(GLfloat), ary);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
     end();
@@ -42,26 +42,26 @@ void SimpleRectangle::render()
 
 void SimpleRectangle::begin()
 {
-    glUseProgram(programId_);
-    glEnableVertexAttribArray(position_);
+    glUseProgram(_programId);
+    glEnableVertexAttribArray(_position);
 }
 
 void SimpleRectangle::end()
 {
-    glDisableVertexAttribArray(position_);
+    glDisableVertexAttribArray(_position);
     glUseProgram(0);
 }
 
 bool SimpleRectangle::init()
 {
-    valid_ = ShaderProgram::initWithFile(vsFileName_, fsFileName_);
-    if (valid_)
+    _valid = ShaderProgram::initWithFile(_vsFileName, _fsFileName);
+    if (_valid)
     {
-        position_   = glGetAttribLocation(programId_, "_position");
-        color_      = glGetUniformLocation(programId_, "_color");
-        mvp_        = glGetUniformLocation(programId_, "_mvp");
+        _position   = glGetAttribLocation(_programId, "_position");
+        _color      = glGetUniformLocation(_programId, "_color");
+        _mvp        = glGetUniformLocation(_programId, "_mvp");
     }
-    return valid_;
+    return _valid;
 }
 
 SimpleRectangle* SimpleRectangle::create()
