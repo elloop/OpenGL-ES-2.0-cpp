@@ -12,7 +12,7 @@ class FirstCamera
 {
 public:
     FirstCamera()
-        : _moveSpeed(5)
+        : _moveSpeed(10)
         , _eye(0, 10, 0)
         , _look(0.5, -0.4, -0.5)
         , _up(0, 1, 0)
@@ -81,11 +81,10 @@ public:
     attribute                   _uv;
 
     unsigned int                _textureBgId;
-    unsigned int                _textureDynamic;
-    unsigned int                _textureDog;
+    unsigned int                _textureCube;
 
     unsigned int                _vbo;
-    Vertex                      *_vertexes;
+    unsigned int                _ibo;
 
     FirstCamera                 _camera;
 
@@ -98,26 +97,20 @@ protected:
         , _textureBgId(0)
         , _position(-1)
         , _uv(-1)
-        , _textureDynamic(0)
-        , _textureDog(0)
-        , _vertexes(nullptr)
+        , _textureCube(0)
+        , _vbo(0)
+        , _ibo(0)
     {
-        _vsFileName = "shaders/alpha_test_vs.glsl";
-        _fsFileName = "shaders/alpha_test_fs.glsl";
+        _vsFileName = "shaders/3D_projection_vs.glsl";
+        _fsFileName = "shaders/3D_projection_fs.glsl";
     }
     ~VboScene()
     {
         glDeleteTextures(1, &_textureBgId);
-        glDeleteTextures(1, &_textureDynamic);
-        glDeleteTextures(1, &_textureDog);
-        if (_vertexes) 
-        {
-            delete [] _vertexes;
-        }
+        glDeleteTextures(1, &_textureCube);
     }
     unsigned int loadMipMap(const std::vector<std::string> &fileNames);
     unsigned int loadTexture(const std::string &fileName );
-    unsigned int createTexture(int width, int height);
 };
 
 

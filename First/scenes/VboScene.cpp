@@ -33,8 +33,8 @@ bool VboScene::init()
 
     std::vector<std::string> fileNames =
     {
-        "images/p32X32.bmp",
-        "images/p16X16.bmp",
+        "images/p32x32.bmp",
+        "images/p16x16.bmp",
         "images/p8x8.bmp",
         "images/p4x4.bmp",
         "images/p2X2.bmp",
@@ -42,61 +42,50 @@ bool VboScene::init()
     };
 
     _textureBgId = loadMipMap(fileNames);
-
-    Size size = Director::getInstance()->getFrameSize();
-    _textureDynamic = createTexture(size._width, size._height);
-
-    _textureDog = loadTexture("images/grass.png");
+    _textureCube = loadTexture("images/1.jpg");
 
     _camera._eye = CELL::float3(1, 1, 1);
     _camera._look = CELL::float3(0.5f, -0.4f, -5.5f);
     _camera._up = CELL::float3(0.0f, 1.0f, 0.0f);
     _camera._right = CELL::float3(1.0f, 0.0f, 0.0f);
-    _camera._moveSpeed = 10;
 
-    Vertex vertexes[] =
+    
+    Vertex cubeVertex[] =
     {
-        { -1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-
-        { -1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { -1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
+        { -1.0f, -1.0f,  1.0f,  0.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 0
+        {  1.0f, -1.0f,  1.0f,  0.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 1
+        {  1.0f,  1.0f,  1.0f,  1.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 2
+        { -1.0f,  1.0f,  1.0f,  1.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 3
+        { -1.0f, -1.0f, -1.0f,  0.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 4
+        { -1.0f,  1.0f, -1.0f,  1.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 5
+        {  1.0f,  1.0f, -1.0f,  1.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 6
+        {  1.0f, -1.0f, -1.0f,  1.0f, 1.0f,     1.0f, 1.0f, 1.0f, 1.0f }, // 7
     };
 
-    _vertexes = new Vertex[]
+    GLubyte cubeIndices[] =
     {
-        { -1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-
-        { -1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { -1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
+        0, 1, 2, 0, 2, 3, // Quad 0
+        4, 5, 6, 4, 6, 7, // Quad 1
+        5, 3, 2, 5, 2, 6, // Quad 2
+        4, 7, 1, 4, 1, 0, // Quad 3
+        7, 6, 2, 7, 2, 1, // Quad 4
+        4, 0, 3, 4, 3, 5  // Quad 5
     };
-
-     size_t num = sizeof(vertexes) / sizeof (vertexes[0]);
-
-    //_vertexes = new Vertex[num];
-    //memcpy(_vertexes, vertexes, sizeof(Vertex));
 
     // create vertex buffer object.
-    //glGenBuffers(1, &_vbo);
-    //glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-    ////glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), _vertexes, GL_STATIC_DRAW);
-    //glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * num, reinterpret_cast<void*>(_vertexes), GL_STATIC_DRAW);
-    ////glBufferData(GL_ARRAY_BUFFER, sizeof(vertexes) , vertexes, GL_STATIC_DRAW);
+    glGenBuffers(1, &_vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertex), cubeVertex, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+    glGenBuffers(1, &_ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof( cubeIndices ), cubeIndices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-    //glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * num, 0, GL_STATIC_DRAW);
-    //glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Vertex) * num, vertexes);
-
-    //glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    // GL_APICALL void GL_APIENTRY glBufferData (GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage)
-    //glBufferSubData(GL_ARRAY_BUFFER, ) glBindBuffer(GL_ARRAY_BUFFER, 0)
-
+    // or
+    /* glBufferData(GL_ARRAY_BUFFER, sizeof vertexes, 0, GL_STATIC_DRAW);
+     glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof vertexes, vertexes);*/
 
     return _valid;
 }
@@ -199,69 +188,27 @@ void VboScene::render()
 
 
 
-    // draw rotate dog, translate to x + offsetX.
+    // draw cube, 
     matrix4 matTrans;
     matTrans.translate(0, 0, -1);
     matrix4 mvpDog = matProj * matView * matTrans;
 
-
-    Vertex vertexes[] =
-    {
-        { -1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-
-        { -1.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-        { -1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f },
-    };
-
-    // first dog.
-    glBindTexture(GL_TEXTURE_2D, _textureDog);
-
-    //glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-
+    glBindTexture(GL_TEXTURE_2D, _textureCube);
     glUniformMatrix4fv(_mvp, 1, false, mvpDog.data());
-    //glVertexAttribPointer(_position, 3, GL_FLOAT, false, sizeof(Vertex), reinterpret_cast<void*>(0));
-    //glVertexAttribPointer(_uv, 2, GL_FLOAT, false, sizeof(Vertex), reinterpret_cast<void*>(12));
 
-    float* f1 = &(_vertexes[0].x);
-    float *f2 = f1 + 3 * sizeof (Vertex) ;
-    float f2v = *f2;
+    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ibo);
 
-    float* ff1 = &(vertexes[0].x);
-    float *ff2 = ff1 + 3 * sizeof (Vertex);
-    float ff2v = *ff2;
+    int offset = 0;
+    glVertexAttribPointer(_position, 3, GL_FLOAT, false, sizeof(Vertex), reinterpret_cast<void*>(offset));
 
-    glVertexAttribPointer(_position, 3, GL_FLOAT, false, sizeof(Vertex), &_vertexes[0].x);
-    glVertexAttribPointer(_uv, 2, GL_FLOAT, false, sizeof(Vertex), &_vertexes[0].u);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    //glDrawArrays(GL_TRIANGLES, 0, 6);
-    //glBindBuffer(GL_ARRAY_BUFFER, 0);
+    offset += 3 * sizeof(float); // u,v is after x,y,z three floats.
+    glVertexAttribPointer(_uv, 2, GL_FLOAT, false, sizeof(Vertex), reinterpret_cast<void*>(offset));
 
+    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_BYTE, 0); // use ibo.
 
-    // draw 2D texture include all things.
-    matrix4 mvp2D = ortho<float>(0, width, height, 0, -100, 100);
-    float x = 0;
-    float y = 0;
-    float w = 200;
-    float h = 200;
-
-    // color vector is not used.
-    Vertex vertex2D[] =
-    {
-        x, y, 0, 0, 1, 1, 0, 0, 1,
-        x + w, y, 0, 1, 1, 1, 0, 0, 1,
-        x, y + h, 0, 0, 0, 1, 0, 0, 1,
-        x + w, y + h, 0, 1, 0, 1, 0, 0, 1,
-    };
-    glBindTexture(GL_TEXTURE_2D, _textureDynamic);
-    glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 0, 0, width, height);
-    glUniformMatrix4fv(_mvp, 1, false, mvp2D.data());
-    glVertexAttribPointer(_position, 3, GL_FLOAT, false, sizeof(Vertex), &vertex2D[0].x);
-    glVertexAttribPointer(_uv, 2, GL_FLOAT, false, sizeof(Vertex), &vertex2D[0].u);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, sizeof(vertex2D) / sizeof (vertex2D[0]));
-
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     end();
 }
@@ -315,19 +262,6 @@ unsigned int VboScene::loadTexture(const std::string &fileName)
 
     return textureId;
 }
-
-unsigned int VboScene::createTexture(int width, int height)
-{
-    unsigned int textureId;
-    glGenTextures(1, &textureId);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-    return textureId;
-}
-
-
 
 NS_END(vbo_scene);
 NS_END(elloop);
