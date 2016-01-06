@@ -100,6 +100,7 @@
     <ClCompile Include="basic\ELAutoReleasePool.cpp" />
     <ClCompile Include="include\gl_include.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="scenes\AlphaTest.cpp" />
     <ClCompile Include="scenes\Basic3DProjection.cpp" />
     <ClCompile Include="scenes\Circle.cpp" />
     <ClCompile Include="scenes\ColorRectangle.cpp" />
@@ -112,6 +113,7 @@
     <ClCompile Include="scenes\SimpleRectangle.cpp" />
     <ClCompile Include="scenes\SimpleTexutre.cpp" />
     <ClCompile Include="scenes\TextureOperations.cpp" />
+    <ClCompile Include="scenes\VboScene.cpp" />
     <ClCompile Include="util\ELShaderHelper.cpp" />
     <ClCompile Include="util\ELTextReader.cpp" />
   </ItemGroup>
@@ -141,6 +143,7 @@
     <ClInclude Include="include_scenes.h" />
     <ClInclude Include="math\CELLMath.hpp" />
     <ClInclude Include="math\ELGeometry.h" />
+    <ClInclude Include="scenes\AlphaTest.h" />
     <ClInclude Include="scenes\Basic3DProjection.h" />
     <ClInclude Include="scenes\Circle.h" />
     <ClInclude Include="scenes\ColorRectangle.h" />
@@ -153,6 +156,7 @@
     <ClInclude Include="scenes\SimpleRectangle.h" />
     <ClInclude Include="scenes\SimpleTexutre.h" />
     <ClInclude Include="scenes\TextureOperations.h" />
+    <ClInclude Include="scenes\VboScene.h" />
     <ClInclude Include="util\ELShaderHelper.h" />
     <ClInclude Include="util\ELTextReader.h" />
   </ItemGroup>

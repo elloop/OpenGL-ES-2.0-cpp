@@ -37,6 +37,15 @@ bool OpenGLView::initWithInstance(HINSTANCE instance, LPCTSTR winName)
         return false;
     }
 
+    // @20150106 for alpha test.
+    glEnable(GL_BLEND);
+
+    // todo : check blend func algorithm.
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    // depth test
+    glEnable(GL_DEPTH_TEST);
+
     return (_hwnd != 0);
 }
 

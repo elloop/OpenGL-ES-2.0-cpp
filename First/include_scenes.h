@@ -11,6 +11,8 @@
 #include "scenes/MipMapTexture.h"
 #include "scenes/TextureOperations.h"
 #include "scenes/ComprehensiveTest.h"
+#include "scenes/AlphaTest.h"
+#include "scenes/VboScene.h"
 
 
 #endif //OPENGL_ES_CPP_DRAWABLE_H

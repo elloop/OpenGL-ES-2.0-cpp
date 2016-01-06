@@ -13,7 +13,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     srand(time(0));
 
-#define TEST_FLAG 10
+#define TEST_FLAG 12
 
 #if TEST_FLAG == 1          // simple rectangle. pure color.
 
@@ -65,6 +65,15 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto comTest = comprehensive_test::ComprehensiveTest::create();
     director->pushScene(comTest);
 
+#elif TEST_FLAG == 11       // alpha test. 
+
+    auto alphaTest = alpha::AlphaTest::create();
+    director->pushScene(alphaTest);
+
+#elif TEST_FLAG == 12       // vertex buffer object.
+
+    auto vboScene = vbo_scene::VboScene::create();
+    director->pushScene(vboScene);
 #endif
 
     return true;

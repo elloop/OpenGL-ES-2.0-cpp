@@ -65,6 +65,12 @@
     <ClCompile Include="scenes\ComprehensiveTest.cpp">
       <Filter>scenes</Filter>
     </ClCompile>
+    <ClCompile Include="scenes\AlphaTest.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="scenes\VboScene.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\CELLMath.hpp">
@@ -182,6 +188,12 @@
       <Filter>scenes</Filter>
     </ClInclude>
     <ClInclude Include="scenes\ComprehensiveTest.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\AlphaTest.h">
+      <Filter>scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\VboScene.h">
       <Filter>scenes</Filter>
     </ClInclude>
   </ItemGroup>

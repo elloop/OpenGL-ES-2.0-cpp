@@ -12,6 +12,11 @@
 
 # Build results
 
+First/resources/*.exe
+First/resources/OpenGL_ES_2.0.exe
+First/resources/*.ilk
+
+
 [Dd]ebug.intermediate/
 [Dd]ebug/
 [Dd]ebugPublic/
