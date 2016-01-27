@@ -22,6 +22,11 @@ void VboScene::end()
 
 bool VboScene::init()
 {
+    //test
+    GLint maxVertexAttirbs;
+    glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &maxVertexAttirbs);
+
+    // end test
     _valid = ShaderProgram::initWithFile(_vsFileName, _fsFileName);
     if ( _valid )
     {

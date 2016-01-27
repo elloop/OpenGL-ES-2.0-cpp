@@ -160,6 +160,23 @@
     <ClInclude Include="util\ELShaderHelper.h" />
     <ClInclude Include="util\ELTextReader.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\3D_projection_fs.glsl" />
+    <None Include="resources\shaders\3D_projection_vs.glsl" />
+    <None Include="resources\shaders\alpha_test_fs.glsl" />
+    <None Include="resources\shaders\alpha_test_vs.glsl" />
+    <None Include="resources\shaders\color_rectange_vs.glsl" />
+    <None Include="resources\shaders\color_rectangle_fs.glsl" />
+    <None Include="resources\shaders\color_rectangle_vs.glsl" />
+    <None Include="resources\shaders\multi_texture_fs.glsl" />
+    <None Include="resources\shaders\multi_texture_vs.glsl" />
+    <None Include="resources\shaders\simple_rectange_vs.glsl" />
+    <None Include="resources\shaders\simple_rectangle_fs.glsl" />
+    <None Include="resources\shaders\simple_texture_fs.glsl" />
+    <None Include="resources\shaders\simple_texture_vs.glsl" />
+    <None Include="resources\shaders\texture_rect_fs.glsl" />
+    <None Include="resources\shaders\texture_rect_vs.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
