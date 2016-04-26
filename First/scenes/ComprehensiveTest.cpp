@@ -73,7 +73,7 @@ bool ComprehensiveTest::init()
     _camera._look = CELL::float3(0.5f, -0.4f, -5.5f);
     _camera._up = CELL::float3(0.0f, 1.0f, 0.0f);
     _camera._right = CELL::float3(1.0f, 0.0f, 0.0f);
-    _camera._moveSpeed = 10;
+    _camera._moveSpeed = 20;
 
 
     return _valid;

@@ -5,8 +5,6 @@
 #include <stack>
 #include "elloop/inc.h"
 
-class ELWindowApp;
-
 NS_BEGIN(elloop);
 
 class Ref;

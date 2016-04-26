@@ -13,7 +13,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     srand(time(0));
 
-#define TEST_FLAG 12
+#define TEST_FLAG 10
 
 #if TEST_FLAG == 1          // simple rectangle. pure color.
 
