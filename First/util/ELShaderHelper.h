@@ -21,8 +21,8 @@ public:
         return compileShader(shaderSrc, GL_FRAGMENT_SHADER);
     }
 
-    static ProgramId linkProgram(ShaderId _vertexShaderId, 
-                                 ShaderId _fragShaderId);
+    static ProgramId linkProgram(ShaderId vertexShaderId, 
+                                 ShaderId fragShaderId);
 private:
     static ShaderId compileShader(const std::string &shaderSrc, 
                                   GLenum shaderType);

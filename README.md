@@ -19,7 +19,7 @@ these simple graphics drawwing programs help understanding the process of a Open
 
 ![dog_texture.gif](http://7xi3zl.com1.z0.glb.clouddn.com/dog_texture.gif)
 
-## mipmaping
+## Mipmapping
 
 ![mipmap_effect.gif](http://7xi3zl.com1.z0.glb.clouddn.com/mipmap_effect.gif)
 
@@ -59,7 +59,7 @@ class ShaderHelper {
 public:
     static const ShaderId compileVertexShader(const std::string &shaderSrc);
     static const ShaderId compileFragmentShader(const std::string &shaderSrc);
-    static ProgramId linkProgram(ShaderId _vertexShaderId, ShaderId _fragShaderId);
+    static ProgramId linkProgram(ShaderId vertexShaderId, ShaderId fragShaderId);
 private:
     static ShaderId compileShader(const std::string &shaderSrc, GLenum shaderType);
 };
@@ -69,7 +69,7 @@ private:
 
 # License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 # Blogs about this project
 
@@ -93,7 +93,7 @@ This project is licensed under the MIT License.
 
 ## 绘制纹理
 
-## mipmap
+## Mipmapping
 
 ## 3D投影
 
@@ -137,7 +137,7 @@ class ShaderHelper {
 public:
     static const ShaderId compileVertexShader(const std::string &shaderSrc);
     static const ShaderId compileFragmentShader(const std::string &shaderSrc);
-    static ProgramId linkProgram(ShaderId _vertexShaderId, ShaderId _fragShaderId);
+    static ProgramId linkProgram(ShaderId vertexShaderId, ShaderId fragShaderId);
 private:
     static ShaderId compileShader(const std::string &shaderSrc, GLenum shaderType);
 };
@@ -147,4 +147,4 @@ private:
 
 # 许可协议
 
-MIT License
+[MIT License](https://opensource.org/licenses/MIT)
