@@ -1,7 +1,7 @@
 # OpenGL-ES-2.0-cpp
 ---------------------
 
-# English Documents
+# Introduction
 
 This is a graphics application based on OpenGL ES 2.0 API, using C++ and the OpenGL ES Shading Language. The logic structure of this project is like the cocos2d-x game engine, it is started by main.cpp which contains main() function and calls Appdelegate's run() function.
 
@@ -33,7 +33,7 @@ these simple graphics drawwing programs help understanding the process of a Open
 
 ## Alpha test, depth test
 
-# [ ] Critical Codes Explain
+# [ ] Critical Codes
 
 ```c++
 namespace elloop { 
