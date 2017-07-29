@@ -63,11 +63,10 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(ProjectDir)prebuilt\libEGL.lib;$(ProjectDir)prebuilt\libGLESv2.lib;$(ProjectDir)prebuilt\x86\FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(ProjectDir)resources/$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(TargetPath)</OutputFile>
     </Link>
     <PreBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy $(ProjectDir)resources\*.dll $(OutDir)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
