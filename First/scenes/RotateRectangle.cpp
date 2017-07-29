@@ -35,10 +35,10 @@ void RotateRectangle::render()
 
     Vertex ary[] = 
     {
-        float2{ x, y },         Rgba4Byte(255, 0, 0, 1),    
-        float2{ x, y + h },     Rgba4Byte(0, 255, 0, 1),    
-        float2{ x + w, y },     Rgba4Byte(0, 0, 255, 1),    
-        float2{ x + w, y + h }, Rgba4Byte(255, 255, 255, 1),
+        float2{ x, y },         Rgba4Byte(255, 0, 0, 255),
+        float2{ x, y + h },     Rgba4Byte(0, 255, 0, 255),
+        float2{ x + w, y },     Rgba4Byte(0, 0, 255, 255),
+        float2{ x + w, y + h }, Rgba4Byte(255, 255, 255, 255),
     };
 
 #define USE_MATRIX  1
