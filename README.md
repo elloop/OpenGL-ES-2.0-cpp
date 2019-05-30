@@ -17,19 +17,19 @@ these simple graphics drawwing programs help understanding the process of a Open
 
 - multiple texture render
 
-![dog_texture.gif](http://7xi3zl.com1.z0.glb.clouddn.com/dog_texture.gif)
+![dog_texture.gif](http://psbbcvmaz.bkt.clouddn.com/dog_texture.gif)
 
 ## Mipmapping
 
-![mipmap_effect.gif](http://7xi3zl.com1.z0.glb.clouddn.com/mipmap_effect.gif)
+![mipmap_effect.gif](http://psbbcvmaz.bkt.clouddn.com/mipmap_effect.gif)
 
 ## 3D projection
 
-![comprehensive_test.gif](http://7xi3zl.com1.z0.glb.clouddn.com/comprehensive_test.gif)
+![comprehensive_test.gif](http://psbbcvmaz.bkt.clouddn.com/comprehensive_test.gif)
 
 ## Using of buffer objects: VAO, VBO
 
-![vbo_cube.gif](http://7xi3zl.com1.z0.glb.clouddn.com/vbo_cube.gif)
+![vbo_cube.gif](http://psbbcvmaz.bkt.clouddn.com/vbo_cube.gif)
 
 ## Alpha test, depth test
 
