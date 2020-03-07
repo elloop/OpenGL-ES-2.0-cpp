@@ -17,19 +17,19 @@ these simple graphics drawwing programs help understanding the process of a Open
 
 - multiple texture render
 
-![dog_texture.gif](http://psbbcvmaz.bkt.clouddn.com/dog_texture.gif)
+![dog_texture.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/dog_texture.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587208477&Signature=knkKZ1fp3mPAZs3CerfBpCvfn5o%3D)
 
 ## Mipmapping
 
-![mipmap_effect.gif](http://psbbcvmaz.bkt.clouddn.com/mipmap_effect.gif)
+![mipmap_effect.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/mipmap_effect.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587205527&Signature=hOunhdhF1K%2FsHED6TjrUuxog0Fc%3D)
 
 ## 3D projection
 
-![comprehensive_test.gif](http://psbbcvmaz.bkt.clouddn.com/comprehensive_test.gif)
+![comprehensive_test.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/comprehensive_test.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587205544&Signature=%2FQh89gTHPNGHYj4TIvap2s0DwYc%3D)
 
 ## Using of buffer objects: VAO, VBO
 
-![vbo_cube.gif](http://psbbcvmaz.bkt.clouddn.com/vbo_cube.gif)
+![vbo_cube.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/vbo_cube.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587205564&Signature=oaxEKsbSGnBNRcu36CMiIGKNt14%3D)
 
 ## Alpha test, depth test
 
