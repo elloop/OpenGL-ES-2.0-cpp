@@ -16,9 +16,9 @@ these simple graphics drawwing programs help understanding the process of a Open
 - basic texture render
 
 - multiple texture render
-![asdfasdf](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/dog_texture.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587208477&Signature=knkKZ1fp3mPAZs3CerfBpCvfn5o%3D)
 
-![dog_texture.gif](https://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/dog_texture.gif?x-oss-process=style/watermark&Expires=1583677827&OSSAccessKeyId=TMP.hjT9DY2xSJSKFDqDHZLHgFYn7GCG3ZtoJAkWLzp5SJJcjq6gPyDmcDK5LArW3AsRDnR5QUwRmyE8MLfxA3Piw7fKMkqQgr1w1ke7cYfbg1mNvboXRKJ8Xhm873z1zW.tmp&Signature=cXE3Eqi1X1hb7hELfm0TNge8VgE%3D)
+
+![dog_texture.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/dog_texture.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=5183646452&Signature=oB1Q9g7MskNK%2F%2BMbG6JAZKvFrxY%3D)
 
 ## Mipmapping
 
