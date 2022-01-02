@@ -13,9 +13,9 @@ these simple graphics drawwing programs help understanding the process of a Open
 
 ## Texture 
 
-- basic texture render
+- basic texture rendering
 
-- multiple texture render
+- multiple texture rendering
 
 
 ![dog_texture.gif](https://github.com/elloop/elloop.github.io/blob/master/blog_pictures/dog_texture.gif)
