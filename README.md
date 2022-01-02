@@ -18,19 +18,19 @@ these simple graphics drawwing programs help understanding the process of a Open
 - multiple texture render
 
 
-![dog_texture.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/dog_texture.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=5183646452&Signature=oB1Q9g7MskNK%2F%2BMbG6JAZKvFrxY%3D)
+![dog_texture.gif](https://github.com/elloop/elloop.github.io/blob/master/blog_pictures/dog_texture.gif)
 
 ## Mipmapping
 
-![mipmap_effect.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/mipmap_effect.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587205527&Signature=hOunhdhF1K%2FsHED6TjrUuxog0Fc%3D)
+![mipmap_effect.gif](https://github.com/elloop/elloop.github.io/blob/master/blog_pictures/mipmap_effect.gif)
 
 ## 3D projection
 
-![comprehensive_test.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/comprehensive_test.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587205544&Signature=%2FQh89gTHPNGHYj4TIvap2s0DwYc%3D)
+![comprehensive_test.gif](https://github.com/elloop/elloop.github.io/blob/master/blog_pictures/comprehensive_test.gif)
 
 ## Using of buffer objects: VAO, VBO
 
-![vbo_cube.gif](http://elloop.oss-cn-hangzhou.aliyuncs.com/blog_pic/vbo_cube.gif?OSSAccessKeyId=LTAI4FtWWR7eyV7ELYCixBe2&Expires=1587205564&Signature=oaxEKsbSGnBNRcu36CMiIGKNt14%3D)
+![vbo_cube.gif](https://github.com/elloop/elloop.github.io/blob/master/blog_pictures/vbo_cube.gif)
 
 ## Alpha test, depth test
 
